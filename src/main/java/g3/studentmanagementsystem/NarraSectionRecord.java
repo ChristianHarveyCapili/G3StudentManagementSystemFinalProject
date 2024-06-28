@@ -92,17 +92,17 @@ public class NarraSectionRecord implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == studentButton){
             frame.dispose();
-            StudentRecord record = new StudentRecord();
+            NarraStudentRecord record = new NarraStudentRecord();
                 }
         
         else if(e.getSource() == gradeButton){
             frame.dispose();
-            StudentGrade grade = new StudentGrade();
+            NarraStudentGrade grade = new NarraStudentGrade();
                 }
         
         else if(e.getSource() == attendanceButton){
             frame.dispose();
-            StudentAttendance attendance = new StudentAttendance();
+            NarraStudentAttendance attendance = new NarraStudentAttendance();
                 }
         else {
         System.out.println("Unexpected button clicked!");

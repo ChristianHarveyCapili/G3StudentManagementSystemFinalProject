@@ -13,7 +13,7 @@ import java.awt.*;
  *
  * @author Harvey
  */
-public class StudentGrade implements ActionListener {
+public class NarraStudentGrade implements ActionListener {
     
     
     //private JPanel header,footer; still working on this part
@@ -22,7 +22,7 @@ public class StudentGrade implements ActionListener {
     private DefaultTableModel model;
     private JButton addButton, deleteButton, returnButton;  
     
-    public StudentGrade() {
+    public NarraStudentGrade() {
         
         String[] StudentInfo = { "Student No.","Last Name","First Name", "Middle Name","English","Mathematics","Science","Filipino" };
 

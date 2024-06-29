@@ -35,6 +35,12 @@ public class Login implements ActionListener {
     JLabel passwordLabel = new JLabel ("Password:");  
     JLabel messagesLabel = new JLabel();
     HashMap<String,String> login = new HashMap<String,String>();
+    private Color blue= new Color(0,74,173);
+    private Color yellow = new Color(255,222,89);
+    private ImageIcon schoollogo = new ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\G3StudentManagementSystemFinalProject\\tnilogo\\tnismall.png");
+    private ImageIcon schoollogoyellow = new ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\G3StudentManagementSystemFinalProject\\tnilogo\\tniyellowsmall.png");
+    private JLabel logo = new JLabel(schoollogo);
+    private JLabel logoyellow = new JLabel(schoollogoyellow);
    
     Login(HashMap<String,String> loginOriginal){
         //Add all components in JFrame
@@ -46,24 +52,19 @@ public class Login implements ActionListener {
         frame.setSize(800,600 );
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.getContentPane().setBackground(Color.blue);
+        frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
         
-        ImageIcon image = new ImageIcon ("C:\\Users\\User\\OneDrive\\Documents\\NetBeansProjects\\Project\\src\\main\\java\\Images\\Logo.png");
-        Image images = image.getImage();
-        Image pic =images.getScaledInstance(frame.getWidth()/2, frame.getHeight(), java.awt.Image.SCALE_SMOOTH);
-        image = new ImageIcon(pic);
-        
-        JLabel imageLabel = new JLabel (image);
-        imageLabel.setIcon(image);
-        imageLabel.setBounds(0, 0, frame.getWidth()/2, frame.getHeight());
-        frame.getContentPane().add(imageLabel);
+       logo.setBounds(20, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
+       frame.add(logo);
+       logoyellow.setBounds(470, 100, schoollogoyellow.getIconWidth(), schoollogoyellow.getIconHeight());
+       frame.add(logoyellow);
         
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setBounds(300,0, frame.getWidth()-300,frame.getHeight());
         panel.setVisible(true);
-        panel.setBackground(Color.yellow);
+        panel.setBackground(yellow);
         frame.getContentPane().add(panel);
         
         messageLabel.setBounds(70,50,panel.getWidth()-20,35);

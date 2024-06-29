@@ -3,15 +3,21 @@
  */
 
 package g3.studentmanagementsystem;
-
+import java.awt.EventQueue;
 /**
  *
  * @author Harvey
  */
 public class Main {
     public static void main (String[]args){
-        
-        UsernameAndPassword userPass = new UsernameAndPassword();      
-        Login loginInfo = new Login(userPass.getLogin());        
+        EventQueue.invokeLater(new Runnable(){
+            @Override
+            public void run() {
+                StartScreen ss = new StartScreen();
+                ss.setVisible(true);
+            }
+            
+        });
+            
     }
 }

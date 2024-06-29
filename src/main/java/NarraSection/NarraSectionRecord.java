@@ -4,6 +4,7 @@
  */
 package NarraSection;
 
+import g3.studentmanagementsystem.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -21,7 +22,7 @@ public class NarraSectionRecord implements ActionListener {
    JButton studentButton = new JButton("STUDENT RECORD");
    JButton gradeButton = new JButton("GRADE");
    JButton attendanceButton = new JButton("ATTENDANCE");
-   
+   JButton returnStudentSection= new JButton("Return");
    
     public void NarraSectionRecord(){
        
@@ -72,6 +73,10 @@ public class NarraSectionRecord implements ActionListener {
         attendanceButton.addActionListener(this);
         panel.add(attendanceButton);
      
+        returnStudentSection.setBounds(50, 410,panel.getWidth()-100 , 50);
+        returnStudentSection.setFocusable(false);
+        returnStudentSection.addActionListener(this);
+        panel.add(returnStudentSection);
              
         ImageIcon image = new ImageIcon ("C:\\Users\\User\\OneDrive\\Documents\\NetBeansProjects\\Project\\src\\main\\java\\Images\\Logo.png");
         
@@ -103,6 +108,10 @@ public class NarraSectionRecord implements ActionListener {
             frame.dispose();
             NarraStudentAttendance attendance = new NarraStudentAttendance();
                 }
+        else if(e.getSource() == returnStudentSection){
+        frame.dispose();
+        StudentSection ss = new StudentSection();
+        }
         else {
         System.out.println("Unexpected button clicked!");
     }

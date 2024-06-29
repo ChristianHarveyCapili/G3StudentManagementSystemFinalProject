@@ -22,7 +22,7 @@ public  class MahoganySectionRecord implements ActionListener {
    JButton studentButton = new JButton("STUDENT RECORD");
    JButton gradeButton = new JButton("GRADE");
    JButton attendanceButton = new JButton("ATTENDANCE");
-   JButton returnStudentSection= new JButton("Return to Student  Sections");
+   JButton returnStudentSection= new JButton("Return");
    
    
    public void MahoganySectionRecord(){

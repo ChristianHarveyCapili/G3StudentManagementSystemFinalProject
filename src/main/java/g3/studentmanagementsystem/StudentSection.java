@@ -27,7 +27,8 @@ public class StudentSection implements ActionListener {
    JButton btnNarra = new JButton("Section Narra");
    JButton btnBagras = new JButton("Section Bagras");
    JButton btnTalisay = new JButton("Section Talisay");
-   
+   private Color yellow = new Color(255,222,89);
+   private Color blue = new Color(0,74,173);
    
     public StudentSection(){
        
@@ -35,7 +36,7 @@ public class StudentSection implements ActionListener {
         frame.setSize(800,600 );
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.getContentPane().setBackground(Color.blue);
+        frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
         
         
@@ -44,7 +45,7 @@ public class StudentSection implements ActionListener {
         panel.setLayout(null);
         panel.setBounds(frame.getWidth()/2,0, frame.getWidth()/2,frame.getHeight());
         panel.setVisible(true);
-        panel.setBackground(Color.yellow);
+        panel.setBackground(yellow);
         frame.getContentPane().add(panel);
         
         welcomeLabel.setBounds(100,25,panel.getWidth()-20,35);

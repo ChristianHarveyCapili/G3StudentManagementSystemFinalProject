@@ -17,6 +17,7 @@ public class Main {
 //                ss.setVisible(true);
                 StudentSection sss = new StudentSection();
                 
+                
             }
             
         });

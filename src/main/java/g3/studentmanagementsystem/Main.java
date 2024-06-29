@@ -13,8 +13,10 @@ public class Main {
         EventQueue.invokeLater(new Runnable(){
             @Override
             public void run() {
-                StartScreen ss = new StartScreen();
-                ss.setVisible(true);
+//                StartScreen ss = new StartScreen();
+//                ss.setVisible(true);
+                StudentSection sss = new StudentSection();
+                
             }
             
         });

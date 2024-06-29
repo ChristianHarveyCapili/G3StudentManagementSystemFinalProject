@@ -29,7 +29,7 @@ public class StudentSection implements ActionListener {
    JButton btnTalisay = new JButton("Section Talisay");
    
    
-    StudentSection(){
+    public StudentSection(){
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,600 );
@@ -124,5 +124,9 @@ public class StudentSection implements ActionListener {
         else {
         System.out.println("Unexpected button clicked!");
     }
+    }
+
+    public void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

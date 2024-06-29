@@ -1,5 +1,6 @@
 package MahoganySection;
 
+import g3.studentmanagementsystem.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -21,6 +22,7 @@ public  class MahoganySectionRecord implements ActionListener {
    JButton studentButton = new JButton("STUDENT RECORD");
    JButton gradeButton = new JButton("GRADE");
    JButton attendanceButton = new JButton("ATTENDANCE");
+   JButton returnStudentSection= new JButton("Return to Student  Sections");
    
    
    public void MahoganySectionRecord(){
@@ -70,6 +72,10 @@ public  class MahoganySectionRecord implements ActionListener {
         attendanceButton.addActionListener(this);
         panel.add(attendanceButton);
      
+        returnStudentSection.setBounds(50, 410,panel.getWidth()-100 , 50);
+        returnStudentSection.setFocusable(false);
+        returnStudentSection.addActionListener(this);
+        panel.add(returnStudentSection);
              
         ImageIcon image = new ImageIcon ("C:\\Users\\User\\OneDrive\\Documents\\NetBeansProjects\\Project\\src\\main\\java\\Images\\Logo.png");
         
@@ -101,6 +107,12 @@ public  class MahoganySectionRecord implements ActionListener {
             frame.dispose();
             MahoganyStudentAttendance attendance = new MahoganyStudentAttendance();
                 }
+        else if(e.getSource() == returnStudentSection){
+            frame.dispose();
+            StudentSection studentsection = new StudentSection();
+            
+            
+        }
         else {
         System.out.println("Unexpected button clicked!");
     }

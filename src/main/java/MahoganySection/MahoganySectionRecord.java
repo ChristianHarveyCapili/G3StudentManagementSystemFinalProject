@@ -23,6 +23,8 @@ public  class MahoganySectionRecord implements ActionListener {
    JButton gradeButton = new JButton("GRADE");
    JButton attendanceButton = new JButton("ATTENDANCE");
    JButton returnStudentSection= new JButton("Return");
+   private Color blue= new Color(0,74,173);
+   private Color yellow = new Color(255,222,89);
    
    
    public void MahoganySectionRecord(){
@@ -31,14 +33,14 @@ public  class MahoganySectionRecord implements ActionListener {
         frame.setSize(800,600 );
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.getContentPane().setBackground(Color.blue);
+        frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
         
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setBounds(frame.getWidth()/2,0, frame.getWidth()/2,frame.getHeight());
         panel.setVisible(true);
-        panel.setBackground(Color.yellow);
+        panel.setBackground(yellow);
         frame.getContentPane().add(panel);
         
         welcomeLabel.setBounds(100,25,panel.getWidth()-20,35);

@@ -17,7 +17,7 @@ public class StartScreen extends JFrame implements ActionListener {
     private Color blue= new Color(0,74,173);
     private Color yellow = new Color(255,222,89);
     private JButton ldgbutton = new JButton("Press Here to Start");
-    private ImageIcon schoollogo = new ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\G3StudentManagementSystemFinalProject\\tnilogo\\tni.png");
+    private ImageIcon schoollogo = new ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\G3StudentManagementSystemFinalProject\\tni.png");
     private JLabel logo = new JLabel(schoollogo);
     StartScreen(){
         setLayout(null);

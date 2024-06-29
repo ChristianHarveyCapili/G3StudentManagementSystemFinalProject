@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package g3.studentmanagementsystem;
+package NarraSection;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -13,8 +13,7 @@ import javax.swing.*;
  * @author Harvey
  */
 public class NarraSectionRecord implements ActionListener {
-    
-    
+     
    JFrame frame = new JFrame();
    JLabel welcomeLabel = new JLabel("WELCOME TO");
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
@@ -24,7 +23,7 @@ public class NarraSectionRecord implements ActionListener {
    JButton attendanceButton = new JButton("ATTENDANCE");
    
    
-    NarraSectionRecord(){
+    public void NarraSectionRecord(){
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,600 );

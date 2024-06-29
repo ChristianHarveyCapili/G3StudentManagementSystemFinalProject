@@ -2,21 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package g3.studentmanagementsystem;
+package NarraSection;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.awt.*;
 /**
  *
  * @author Harvey
  */
 public class NarraStudentGrade implements ActionListener {
-    
-    
-    //private JPanel header,footer; still working on this part
+      //private JPanel header,footer; still working on this part
     private JFrame frame = new JFrame ("STUDENT GRADE");
     private JTable table;
     private DefaultTableModel model;
@@ -67,6 +64,7 @@ public class NarraStudentGrade implements ActionListener {
         } else if (e.getSource() == returnButton) {
            frame.dispose();
            NarraSectionRecord ns = new NarraSectionRecord();
+           ns.NarraSectionRecord();
                                      
         } else if (e.getSource() == deleteButton) {
 

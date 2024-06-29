@@ -2,27 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package g3.studentmanagementsystem;
+package MahoganySection;
 
+import java.awt.Color;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.*;
 
 /**
  *
- * @author Harvey
+ * @author DEAN MARC PECHAYCO
  */
-public class NarraStudentAttendance implements ActionListener {
-    
+public class MahoganyStudentAttendance implements ActionListener {
     //private JPanel header,footer; still working on this part
     private JFrame frame = new JFrame ("STUDENT ATTENDANCE");
     private JTable table;
     private DefaultTableModel model;
     private JButton addButton, deleteButton, returnButton;  
     
-    public NarraStudentAttendance() {
+    public MahoganyStudentAttendance() {
         
         String[] StudentInfo = { "Student No.","Last Name","First Name", "Middle Name","Monday","Tuesday","Wednesday","Thursday", "Friday", "Saturday", "Sunday" };
 
@@ -67,7 +65,8 @@ public class NarraStudentAttendance implements ActionListener {
             model.addRow(new Object[model.getColumnCount()]);
         }else if (e.getSource() == returnButton) {
            frame.dispose();
-           NarraSectionRecord ns = new NarraSectionRecord();
+           MahoganySectionRecord ms = new MahoganySectionRecord();
+           ms.MahoganySectionRecord();
         
         }else if (e.getSource() == deleteButton) {
 
@@ -80,3 +79,4 @@ public class NarraStudentAttendance implements ActionListener {
         }
     }
 }
+

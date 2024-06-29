@@ -2,42 +2,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package g3.studentmanagementsystem;
+package MahoganySection;
 
-
+import NarraSection.NarraSectionRecord;
+import java.awt.Color;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.*;
+
 /**
  *
- * @author Harvey
+ * @author DEAN MARC PECHAYCO
  */
-public class NarraStudentRecord implements ActionListener {
+public class MahoganyStudentGrade implements ActionListener {
     
-    //private JPanel header,footer; still working on this part
-    private JFrame frame = new JFrame ("STUDENT RECORD");
+ //private JPanel header,footer; still working on this part
+    private JFrame frame = new JFrame ("STUDENT GRADE");
     private JTable table;
     private DefaultTableModel model;
-    private JButton addButton, deleteButton, returnButton;
+    private JButton addButton, deleteButton, returnButton;  
     
-    
-    
-    public NarraStudentRecord() {
+    public MahoganyStudentGrade() {
         
-        
-        String[] StudentInfo = { "Student No.", "Last Name", "First Name", "Middle Name", "Age", "Birthday", "Male or Female", "Contact No*" };
+        String[] StudentInfo = { "Student No.","Last Name","First Name", "Middle Name","English","Mathematics","Science","Filipino" };
 
         model = new DefaultTableModel(StudentInfo, 0);        
         table = new JTable(model);        
-                            
+                
         //Buttons
-        addButton = new JButton("Add Student Record");
+        addButton = new JButton("Add Student Grade");
         addButton.addActionListener(this);
         addButton.setBackground(Color.LIGHT_GRAY);
         
-        deleteButton = new JButton("Delete Student Record");
+        deleteButton = new JButton("Delete Student Grade");
         deleteButton.addActionListener(this);
         deleteButton.setBackground(Color.LIGHT_GRAY);
         
@@ -46,20 +43,20 @@ public class NarraStudentRecord implements ActionListener {
         returnButton.setBackground(Color.LIGHT_GRAY);
         
         JScrollPane scrollPane = new JScrollPane(table);
-        JPanel Panelbutton = new JPanel();
-        Panelbutton.add(addButton);
-        Panelbutton.add(deleteButton);
-        Panelbutton.add(returnButton);
-        
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(addButton);
+        buttonPanel.add(deleteButton);
+        buttonPanel.add(returnButton);
+          
         //frame
         frame.add(scrollPane, java.awt.BorderLayout.CENTER);
-        frame.add(Panelbutton, java.awt.BorderLayout.SOUTH);       
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(buttonPanel, java.awt.BorderLayout.SOUTH);      
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);     
         frame.setVisible(true);
         frame.setSize(800,600 );
         frame.setResizable(false);
+ 
     }
-
 
     @Override
     //Button Actions
@@ -67,19 +64,21 @@ public class NarraStudentRecord implements ActionListener {
         if (e.getSource() == addButton) {
 
             model.addRow(new Object[model.getColumnCount()]);
-        } 
-        else if (e.getSource() == returnButton) {
+        } else if (e.getSource() == returnButton) {
            frame.dispose();
-           NarraSectionRecord ns = new NarraSectionRecord();
+           MahoganySectionRecord ms = new MahoganySectionRecord();
+           ms.MahoganySectionRecord();
                                      
-        }else if (e.getSource() == deleteButton) {
+        } else if (e.getSource() == deleteButton) {
 
             int selectedRow = table.getSelectedRow();
             if (selectedRow != -1) {
                 model.removeRow(selectedRow);
-        } else {
+        
+        }  else {
                 JOptionPane.showMessageDialog(frame, "Select a row to delete!");
             }
         }
     }
 }
+

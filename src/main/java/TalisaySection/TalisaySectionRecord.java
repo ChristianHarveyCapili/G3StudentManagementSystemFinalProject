@@ -2,34 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package g3.studentmanagementsystem;
+package TalisaySection;
 
-import NarraSection.*;
-import MahoganySection.*;
-import BagrasSection.*;
-import TalisaySection.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.SwingConstants;
 
 /**
  *
- * @author Harvey
+ * @author DEAN MARC PECHAYCO
  */
-public class StudentSection implements ActionListener {
-    
-    
+public class TalisaySectionRecord implements ActionListener {
    JFrame frame = new JFrame();
    JLabel welcomeLabel = new JLabel("WELCOME TO");
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
-   JLabel selectLabel = new JLabel ("Select Student Section:");
-   JButton btnMahogany = new JButton("Section Mahogany");
-   JButton btnNarra = new JButton("Section Narra");
-   JButton btnBagras = new JButton("Section Bagras");
-   JButton btnTalisay = new JButton("Section Talisay");
+   JLabel selectLabel = new JLabel ("Select an option:");
+   JButton studentButton = new JButton("STUDENT RECORD");
+   JButton gradeButton = new JButton("GRADE");
+   JButton attendanceButton = new JButton("ATTENDANCE");
    
    
-    StudentSection(){
+    public void TalisaySectionRecord(){
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,600 );
@@ -63,26 +58,22 @@ public class StudentSection implements ActionListener {
         panel.add(selectLabel);
         
         //Buttons
-        btnMahogany.setBounds(50, 200,panel.getWidth()-100, 50);
-        btnMahogany.setFocusable(false);
-        btnMahogany.addActionListener(this);
-        panel.add(btnMahogany);
+        studentButton.setBounds(50, 200,panel.getWidth()-100, 50);
+        studentButton.setFocusable(false);
+        studentButton.addActionListener(this);
+        panel.add(studentButton);
         
-        btnNarra.setBounds(50, 270, panel.getWidth()-100 , 50);
-        btnNarra.setFocusable(false);
-        btnNarra.addActionListener(this);
-        panel.add(btnNarra);
+        gradeButton.setBounds(50, 270, panel.getWidth()-100 , 50);
+        gradeButton.setFocusable(false);
+        gradeButton.addActionListener(this);
+        panel.add(gradeButton);
         
-        btnBagras.setBounds(50, 340,panel.getWidth()-100 , 50);
-        btnBagras.setFocusable(false);
-        btnBagras.addActionListener(this);
-        panel.add(btnBagras);
+        attendanceButton.setBounds(50, 340,panel.getWidth()-100 , 50);
+        attendanceButton.setFocusable(false);
+        attendanceButton.addActionListener(this);
+        panel.add(attendanceButton);
      
-        btnTalisay.setBounds(50, 410,panel.getWidth()-100 , 50);
-        btnTalisay.setFocusable(false);
-        btnTalisay.addActionListener(this);
-        panel.add(btnTalisay);     
-        
+             
         ImageIcon image = new ImageIcon ("C:\\Users\\User\\OneDrive\\Documents\\NetBeansProjects\\Project\\src\\main\\java\\Images\\Logo.png");
         
         Image images = image.getImage();
@@ -99,30 +90,23 @@ public class StudentSection implements ActionListener {
     }
    @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == btnMahogany){
+        if(e.getSource() == studentButton){
             frame.dispose();
-            MahoganySectionRecord ms = new MahoganySectionRecord();
-            ms.MahoganySectionRecord();
-            }
-        
-        else if(e.getSource() == btnNarra){
-            frame.dispose();
-            NarraSectionRecord ns = new NarraSectionRecord();
-            ns.NarraSectionRecord();
+            TalisayStudentRecord record = new TalisayStudentRecord();
                 }
         
-        else if(e.getSource() == btnBagras){
-             frame.dispose();
-             BagrasSectionRecord bs = new BagrasSectionRecord();
-             bs.BagrasSectionRecord();
-               }
-        else if(e.getSource() == btnTalisay){
+        else if(e.getSource() == gradeButton){
             frame.dispose();
-            TalisaySectionRecord ts = new TalisaySectionRecord();
-            ts.TalisaySectionRecord();
+            TalisayStudentGrade grade = new TalisayStudentGrade();
+                }
+        
+        else if(e.getSource() == attendanceButton){
+            frame.dispose();
+            TalisayStudentAttendance attendance = new TalisayStudentAttendance();
                 }
         else {
         System.out.println("Unexpected button clicked!");
     }
     }
+
 }

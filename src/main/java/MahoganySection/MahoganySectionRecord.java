@@ -35,6 +35,7 @@ public  class MahoganySectionRecord implements ActionListener {
         frame.setVisible(true);
         frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
         
         JPanel panel = new JPanel();
         panel.setLayout(null);

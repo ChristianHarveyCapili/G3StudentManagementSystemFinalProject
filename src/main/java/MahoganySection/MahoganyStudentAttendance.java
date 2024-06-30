@@ -30,7 +30,9 @@ public class MahoganyStudentAttendance extends JFrame implements ActionListener 
         mahoganyFrame.setPreferredSize(new Dimension(1000, 800));
         mahoganyFrame.getContentPane().setBackground(new Color(0, 74, 173));
         mahoganyFrame.setLayout(null);
+        mahoganyFrame.pack();
         mahoganyFrame.setLocationRelativeTo(null);
+        mahoganyFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   

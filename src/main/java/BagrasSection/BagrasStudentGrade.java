@@ -37,7 +37,9 @@ JFrame bagrasFrame;
         bagrasFrame.setPreferredSize(new Dimension(1000, 800));
         bagrasFrame.getContentPane().setBackground(new Color(0, 74, 173));
         bagrasFrame.setLayout(null);
+        bagrasFrame.pack();
         bagrasFrame.setLocationRelativeTo(null);
+        bagrasFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
@@ -134,6 +136,10 @@ JFrame bagrasFrame;
            ns.BagrasSectionRecord();
         }
     }
+        if(e.getSource() == returnButton){
+           bagrasFrame.dispose();
+           BagrasSectionRecord ns = new BagrasSectionRecord();
+           ns.BagrasSectionRecord();
 }
-}
+}}
 

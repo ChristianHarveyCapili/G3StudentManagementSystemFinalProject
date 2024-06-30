@@ -34,7 +34,7 @@ public class TalisaySectionRecord implements ActionListener {
         frame.setVisible(true);
         frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
-        
+        frame.setLocationRelativeTo(null);
         
               
         JPanel panel = new JPanel();

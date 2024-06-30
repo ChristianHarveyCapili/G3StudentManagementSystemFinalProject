@@ -29,6 +29,8 @@ public class StudentSection implements ActionListener {
    JButton btnTalisay = new JButton("Section Talisay");
    private Color yellow = new Color(255,222,89);
    private Color blue = new Color(0,74,173);
+   private ImageIcon schoollogo = new ImageIcon("tnismall.png");
+   private JLabel logo = new JLabel(schoollogo);
    
     public StudentSection(){
        
@@ -38,9 +40,10 @@ public class StudentSection implements ActionListener {
         frame.setVisible(true);
         frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
         
         
-              
+        
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setBounds(frame.getWidth()/2,0, frame.getWidth()/2,frame.getHeight());
@@ -88,16 +91,10 @@ public class StudentSection implements ActionListener {
         btnTalisay.addActionListener(this);
         panel.add(btnTalisay);     
         
-        ImageIcon image = new ImageIcon ("C:\\Users\\User\\OneDrive\\Documents\\NetBeansProjects\\Project\\src\\main\\java\\Images\\Logo.png");
+        ImageIcon image = new ImageIcon ();
         
-        Image images = image.getImage();
-        Image pic =images.getScaledInstance(frame.getWidth()/2, frame.getHeight(), java.awt.Image.SCALE_SMOOTH);
-        image = new ImageIcon(pic);
-        
-        JLabel imageLabel = new JLabel (image);
-        imageLabel.setIcon(image);
-        imageLabel.setBounds(0, 0, frame.getWidth()/2, frame.getHeight());
-        frame.getContentPane().add(imageLabel);
+        logo.setBounds(70, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
+        frame.add(logo);
 
         
                   

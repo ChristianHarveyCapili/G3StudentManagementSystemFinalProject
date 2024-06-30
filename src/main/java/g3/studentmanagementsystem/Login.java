@@ -38,8 +38,8 @@ public class Login implements ActionListener {
     HashMap<String,String> login = new HashMap<String,String>();
     private Color blue= new Color(0,74,173);
     private Color yellow = new Color(255,222,89);
-    private ImageIcon schoollogo = new ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\G3StudentManagementSystemFinalProject\\tnismall.png");
-    private ImageIcon schoollogoyellow = new ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\G3StudentManagementSystemFinalProject\\tniyellowsmall.png");
+    private ImageIcon schoollogo = new ImageIcon("tnismall.png");
+    private ImageIcon schoollogoyellow = new ImageIcon("tniyellowsmall.png");
     private JLabel logo = new JLabel(schoollogo);
     private JLabel logoyellow = new JLabel(schoollogoyellow);
     private JCheckBox box = new JCheckBox("Show Your Password");
@@ -56,6 +56,7 @@ public class Login implements ActionListener {
         frame.setVisible(true);
         frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
         
        logo.setBounds(20, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
        frame.add(logo);

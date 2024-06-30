@@ -36,7 +36,9 @@ public class NarraStudentGrade extends JFrame implements ActionListener {
         narraFrame.setPreferredSize(new Dimension(1000, 800));
         narraFrame.getContentPane().setBackground(new Color(0, 74, 173));
         narraFrame.setLayout(null);
+        narraFrame.pack();
         narraFrame.setLocationRelativeTo(null);
+        narraFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   

@@ -35,7 +35,9 @@ public class TalisayStudentRecord extends JFrame implements ActionListener {
         talisayFrame.setPreferredSize(new Dimension(1000, 800));
         talisayFrame.getContentPane().setBackground(new Color(0, 74, 173));
         talisayFrame.setLayout(null);
+        talisayFrame.pack();
         talisayFrame.setLocationRelativeTo(null);
+        talisayFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   

@@ -49,37 +49,41 @@ public class StudentSection implements ActionListener {
         frame.getContentPane().add(panel);
         
         welcomeLabel.setBounds(100,25,panel.getWidth()-20,35);
-        welcomeLabel.setFont(new Font(Font.SERIF, Font.BOLD, 25));
+        welcomeLabel.setFont(new Font("Georgia", Font.BOLD, 25));
         welcomeLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(welcomeLabel);
         
-        welcomesLabel.setBounds(50,50, panel.getWidth()-20,35);
-        welcomesLabel.setFont(new Font(Font.SERIF, Font.BOLD, 12));
+        welcomesLabel.setBounds(10,50, panel.getWidth()-20,35);
+        welcomesLabel.setFont(new Font("Georgia", Font.BOLD, 14));
         welcomesLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(welcomesLabel);
         
         selectLabel.setBounds(15,100, panel.getWidth()-20,35);
-        selectLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 15));
+        selectLabel.setFont(new Font("Verdana", Font.BOLD, 15));
         selectLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(selectLabel);
         
         //Buttons
         btnMahogany.setBounds(50, 200,panel.getWidth()-100, 50);
+        btnMahogany.setFont(new Font("Verdana", Font.BOLD, 15));
         btnMahogany.setFocusable(false);
         btnMahogany.addActionListener(this);
         panel.add(btnMahogany);
         
         btnNarra.setBounds(50, 270, panel.getWidth()-100 , 50);
+        btnNarra.setFont(new Font("Verdana", Font.BOLD, 15));
         btnNarra.setFocusable(false);
         btnNarra.addActionListener(this);
         panel.add(btnNarra);
         
         btnBagras.setBounds(50, 340,panel.getWidth()-100 , 50);
+        btnBagras.setFont(new Font("Verdana", Font.BOLD, 15));
         btnBagras.setFocusable(false);
         btnBagras.addActionListener(this);
         panel.add(btnBagras);
      
         btnTalisay.setBounds(50, 410,panel.getWidth()-100 , 50);
+        btnTalisay.setFont(new Font("Verdana", Font.BOLD, 15));
         btnTalisay.setFocusable(false);
         btnTalisay.addActionListener(this);
         panel.add(btnTalisay);     

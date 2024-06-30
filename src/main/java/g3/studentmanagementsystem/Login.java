@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,6 +42,7 @@ public class Login implements ActionListener {
     private ImageIcon schoollogoyellow = new ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\G3StudentManagementSystemFinalProject\\tnilogo\\tniyellowsmall.png");
     private JLabel logo = new JLabel(schoollogo);
     private JLabel logoyellow = new JLabel(schoollogoyellow);
+    private JCheckBox box = new JCheckBox("Show Your Password");
    
     Login(HashMap<String,String> loginOriginal){
         //Add all components in JFrame
@@ -67,16 +69,18 @@ public class Login implements ActionListener {
         panel.setBackground(yellow);
         frame.getContentPane().add(panel);
         
-        messageLabel.setBounds(70,50,panel.getWidth()-20,35);
-        messageLabel.setFont(new Font(Font.SERIF, Font.BOLD, 15));
+        messageLabel.setBounds(23,50,panel.getWidth()-20,35);
+        messageLabel.setFont(new Font("Georgia", Font.BOLD, 17));
         messageLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(messageLabel);
         
         //Declaring the component's location
         usernameLabel.setBounds(100, 350, 75, 25);
+        usernameLabel.setFont(new Font("Verdana", Font.BOLD, 12));
         panel.add(usernameLabel);
         
         passwordLabel.setBounds(100,400, 75, 25);
+        passwordLabel.setFont(new Font("Verdana", Font.BOLD, 12));
         panel.add(passwordLabel);
         
         usernameField.setBounds(200, 350, 200, 25);
@@ -85,12 +89,20 @@ public class Login implements ActionListener {
         passwordField.setBounds(200, 400, 200, 25);
         panel.add(passwordField);
         
-        loginButton.setBounds(140, 450,100 , 25);
+        box.setBounds(200, 430, 190, 20);
+        box.setFont(new Font("Verdana", Font.BOLD, 10));
+        box.setOpaque(false); 
+        box.addActionListener(this);
+        panel.add(box);
+        
+        loginButton.setBounds(140, 480,100 , 25);
+        loginButton.setFont(new Font("Verdana", Font.BOLD, 12));
         loginButton.setFocusable(false);
         loginButton.addActionListener(this);
         panel.add(loginButton);
         
-        resetButton.setBounds(260, 450, 100, 25);
+        resetButton.setBounds(260, 480, 100, 25);
+        resetButton.setFont(new Font("Verdana", Font.BOLD, 12));
         resetButton.setFocusable(false);
         resetButton.addActionListener(this);
         panel.add(resetButton);
@@ -105,6 +117,14 @@ public class Login implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        if(e.getSource() == box){
+            if(box.isSelected()){
+               passwordField.setEchoChar((char)0);
+            }
+            else{
+                passwordField.setEchoChar('•');
+            }
+        }
         if(e.getSource()==resetButton) {
             usernameField.setText("");
             passwordField.setText("");

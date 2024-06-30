@@ -42,37 +42,41 @@ public class BagrasSectionRecord implements ActionListener {
         frame.getContentPane().add(panel);
         
         welcomeLabel.setBounds(100,25,panel.getWidth()-20,35);
-        welcomeLabel.setFont(new Font(Font.SERIF, Font.BOLD, 25));
+        welcomeLabel.setFont(new Font("Georgia", Font.BOLD, 25));
         welcomeLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(welcomeLabel);
         
-        welcomesLabel.setBounds(50,50, panel.getWidth()-20,35);
-        welcomesLabel.setFont(new Font(Font.SERIF, Font.BOLD, 12));
+        welcomesLabel.setBounds(10,50, panel.getWidth()-20,35);
+        welcomesLabel.setFont(new Font("Georgia", Font.BOLD, 14));
         welcomesLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(welcomesLabel);
         
         selectLabel.setBounds(15,100, panel.getWidth()-20,35);
-        selectLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 15));
+        selectLabel.setFont(new Font("Verdana", Font.BOLD, 15));
         selectLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(selectLabel);
         
         //Buttons
         studentButton.setBounds(50, 200,panel.getWidth()-100, 50);
+        studentButton.setFont(new Font("Verdana", Font.BOLD, 15));
         studentButton.setFocusable(false);
         studentButton.addActionListener(this);
         panel.add(studentButton);
         
         gradeButton.setBounds(50, 270, panel.getWidth()-100 , 50);
+        gradeButton.setFont(new Font("Verdana", Font.BOLD, 15));
         gradeButton.setFocusable(false);
         gradeButton.addActionListener(this);
         panel.add(gradeButton);
         
         attendanceButton.setBounds(50, 340,panel.getWidth()-100 , 50);
+        attendanceButton.setFont(new Font("Verdana", Font.BOLD, 15));
         attendanceButton.setFocusable(false);
         attendanceButton.addActionListener(this);
         panel.add(attendanceButton);
         
         returnStudentSection.setBounds(50, 410,panel.getWidth()-100 , 50);
+        returnStudentSection.setFont(new Font("Verdana", Font.BOLD, 15));
         returnStudentSection.setFocusable(false);
         returnStudentSection.addActionListener(this);
         panel.add(returnStudentSection);

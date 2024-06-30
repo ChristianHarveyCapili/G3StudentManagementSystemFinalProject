@@ -4,9 +4,9 @@
  */
 package g3.studentmanagementsystem;
 
-import DIT.TalisaySectionRecord;
-import IE.MahoganySectionRecord;
-import DICT.BagrasSectionRecord;
+import DIT.*;
+import IE.*;
+import DICT.*;
 import BSIT.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -23,10 +23,10 @@ public class StudentSection implements ActionListener {
    JLabel welcomeLabel = new JLabel("WELCOME TO");
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
    JLabel selectLabel = new JLabel ("Select Student Section:");
-   JButton btnMahogany = new JButton("Section Mahogany");
+   JButton btnIE = new JButton("IE COURSE");
    JButton btnBSIT = new JButton("BSIT COURSE");
-   JButton btnBagras = new JButton("Section Bagras");
-   JButton btnTalisay = new JButton("Section Talisay");
+   JButton btnDICT = new JButton("DICT COURSE");
+   JButton btnDIT = new JButton("DIT COURSE");
    private Color yellow = new Color(255,222,89);
    private Color blue = new Color(0,74,173);
    private ImageIcon schoollogo = new ImageIcon("tnismall.png");
@@ -67,11 +67,11 @@ public class StudentSection implements ActionListener {
         panel.add(selectLabel);
         
         //Buttons
-        btnMahogany.setBounds(50, 270,panel.getWidth()-100, 50);
-        btnMahogany.setFont(new Font("Verdana", Font.BOLD, 15));
-        btnMahogany.setFocusable(false);
-        btnMahogany.addActionListener(this);
-        panel.add(btnMahogany);
+        btnIE.setBounds(50, 270,panel.getWidth()-100, 50);
+        btnIE.setFont(new Font("Verdana", Font.BOLD, 15));
+        btnIE.setFocusable(false);
+        btnIE.addActionListener(this);
+        panel.add(btnIE);
         
         btnBSIT.setBounds(50, 200, panel.getWidth()-100 , 50);
         btnBSIT.setFont(new Font("Verdana", Font.BOLD, 15));
@@ -79,17 +79,17 @@ public class StudentSection implements ActionListener {
         btnBSIT.addActionListener(this);
         panel.add(btnBSIT);
         
-        btnBagras.setBounds(50, 340,panel.getWidth()-100 , 50);
-        btnBagras.setFont(new Font("Verdana", Font.BOLD, 15));
-        btnBagras.setFocusable(false);
-        btnBagras.addActionListener(this);
-        panel.add(btnBagras);
+        btnDICT.setBounds(50, 340,panel.getWidth()-100 , 50);
+        btnDICT.setFont(new Font("Verdana", Font.BOLD, 15));
+        btnDICT.setFocusable(false);
+        btnDICT.addActionListener(this);
+        panel.add(btnDICT);
      
-        btnTalisay.setBounds(50, 410,panel.getWidth()-100 , 50);
-        btnTalisay.setFont(new Font("Verdana", Font.BOLD, 15));
-        btnTalisay.setFocusable(false);
-        btnTalisay.addActionListener(this);
-        panel.add(btnTalisay);     
+        btnDIT.setBounds(50, 410,panel.getWidth()-100 , 50);
+        btnDIT.setFont(new Font("Verdana", Font.BOLD, 15));
+        btnDIT.setFocusable(false);
+        btnDIT.addActionListener(this);
+        panel.add(btnDIT);     
              
         logo.setBounds(70, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
         frame.add(logo);
@@ -99,10 +99,10 @@ public class StudentSection implements ActionListener {
     }
    @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == btnMahogany){
+        if(e.getSource() == btnIE){
             frame.dispose();
-            MahoganySectionRecord ms = new MahoganySectionRecord();
-            ms.MahoganySectionRecord();
+            IESectionRecord IE = new IESectionRecord();
+           IE.IESectionRecord();
             }
         
         else if(e.getSource() == btnBSIT){
@@ -111,15 +111,15 @@ public class StudentSection implements ActionListener {
             bs.BSITSectionRecord();
                 }
         
-        else if(e.getSource() == btnBagras){
+        else if(e.getSource() == btnDICT){
              frame.dispose();
-             BagrasSectionRecord bs = new BagrasSectionRecord();
-             bs.BagrasSectionRecord();
+             DICTSectionRecord dict = new DICTSectionRecord();
+            dict.DICTSectionRecord();
                }
-        else if(e.getSource() == btnTalisay){
+        else if(e.getSource() == btnDIT){
             frame.dispose();
-            TalisaySectionRecord ts = new TalisaySectionRecord();
-            ts.TalisaySectionRecord();
+            DITSectionRecord ts = new DITSectionRecord();
+            ts.DITSectionRecord();
                 }
         else {
         System.out.println("Unexpected button clicked!");

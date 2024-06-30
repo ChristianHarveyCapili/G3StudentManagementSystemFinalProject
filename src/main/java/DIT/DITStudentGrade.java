@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DICT;
+package DIT;
+
 
 import java.awt.*;
 import static java.awt.Color.*;
@@ -16,9 +17,9 @@ import javax.swing.table.*;
  *
  * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public class BagrasStudentGrade extends JFrame implements ActionListener {
+public class DITStudentGrade extends JFrame implements ActionListener {
     
-JFrame bagrasFrame;
+JFrame DITFrame;
     JPanel headerPanel;
     JLabel headerLabel, subheaderLabel;
     JTable table;
@@ -29,17 +30,17 @@ JFrame bagrasFrame;
     JButton addButton,returnButton,delButton;
     
     
-    public BagrasStudentGrade() {
+    public DITStudentGrade() {
         
-        bagrasFrame = new JFrame();
-        bagrasFrame.setTitle("Student Grade");
-        bagrasFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        bagrasFrame.setPreferredSize(new Dimension(1000, 800));
-        bagrasFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        bagrasFrame.setLayout(null);
-        bagrasFrame.pack();
-        bagrasFrame.setLocationRelativeTo(null);
-        bagrasFrame.setResizable(false);
+        DITFrame = new JFrame();
+        DITFrame.setTitle("Student Grade");
+        DITFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DITFrame.setPreferredSize(new Dimension(1000, 800));
+        DITFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        DITFrame.setLayout(null);
+        DITFrame.pack();
+        DITFrame.setLocationRelativeTo(null);
+        DITFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
@@ -52,12 +53,12 @@ JFrame bagrasFrame;
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Bagras");
+        subheaderLabel = new JLabel("Course - DIT");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        bagrasFrame.add(subheaderLabel);
+        DITFrame.add(subheaderLabel);
         
         model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
         table = new JTable(model);
@@ -106,14 +107,14 @@ JFrame bagrasFrame;
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        bagrasFrame.add(scrollPane);
-        bagrasFrame.add(headerPanel);
-        bagrasFrame.add(addButton);
-        bagrasFrame.add(delButton);
-        bagrasFrame.add(returnButton);
+        DITFrame.add(scrollPane);
+        DITFrame.add(headerPanel);
+        DITFrame.add(addButton);
+        DITFrame.add(delButton);
+        DITFrame.add(returnButton);
 
-        bagrasFrame.pack();
-        bagrasFrame.setVisible(true);
+        DITFrame.pack();
+        DITFrame.setVisible(true);
         
              
             }
@@ -131,15 +132,16 @@ JFrame bagrasFrame;
             model.removeRow(selectedRow);
         } else {
             JOptionPane.showMessageDialog(this, "Error!! Please Select row to delete!", "!!!", JOptionPane.ERROR_MESSAGE);
-           bagrasFrame.dispose();
-           BagrasSectionRecord ns = new BagrasSectionRecord();
-           ns.BagrasSectionRecord();
+           DITFrame.dispose();
+           DITSectionRecord ns = new DITSectionRecord();
+           ns.DITSectionRecord();
         }
     }
-        if(e.getSource() == returnButton){
-           bagrasFrame.dispose();
-           BagrasSectionRecord ns = new BagrasSectionRecord();
-           ns.BagrasSectionRecord();
+                if(e.getSource() == returnButton){
+           DITFrame.dispose();
+           DITSectionRecord ns = new DITSectionRecord();
+           ns.DITSectionRecord();
+        }
 }
-}}
+}
 

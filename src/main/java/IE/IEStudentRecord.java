@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package DICT;
-
+package IE;
 
 import java.awt.*;
 import static java.awt.Color.*;
@@ -13,15 +8,11 @@ import javax.swing.border.*;
 import javax.swing.table.*;
 
 
-/**
- *
- * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
- */
-public class BagrasStudentAttendance extends JFrame implements ActionListener {
+public class IEStudentRecord extends JFrame implements ActionListener {
     
-    JFrame bagrasFrame;
+    JFrame IEFrame;
     JPanel headerPanel;
-    JLabel headerLabel,subheaderLabel;
+    JLabel headerLabel, subheaderLabel;
     JTable table;
     Color tableBorderColor;
     JTableHeader tableHeader;
@@ -30,38 +21,37 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
     JButton addButton,returnButton,delButton;
     
     
-    public BagrasStudentAttendance() {
+    public IEStudentRecord() {
         
-        bagrasFrame = new JFrame();
-        bagrasFrame.setTitle("Student Attendance");
-        bagrasFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        bagrasFrame.setPreferredSize(new Dimension(1000, 800));
-        bagrasFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        bagrasFrame.setLayout(null);
-        bagrasFrame.pack();
-        bagrasFrame.setLocationRelativeTo(null);
-        bagrasFrame.setResizable(false);
+        IEFrame = new JFrame();
+        IEFrame.setTitle("Student Record");
+        IEFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        IEFrame.setPreferredSize(new Dimension(1000, 800));
+        IEFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        IEFrame.setLayout(null);
+        IEFrame.pack();
+        IEFrame.setLocationRelativeTo(null);
+        IEFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
         headerPanel.setBounds(0, 0, 1000, 100);
         
-        headerLabel = new JLabel("STUDENT ATTENDANCE RECORD");
-        headerLabel.setPreferredSize(new Dimension(450, 100));
+        headerLabel = new JLabel("STUDENT INFORMATION RECORD");
+        headerLabel.setPreferredSize(new Dimension(450, 100)); 
         headerLabel.setForeground(Color.WHITE);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Bagras");
+        subheaderLabel = new JLabel("Course - IE");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        bagrasFrame.add(subheaderLabel);
+        IEFrame.add(subheaderLabel);
         
-        
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 0);
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Age","Birthday","Gender","Contact No."}, 0);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -78,19 +68,11 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));
          
        
-      TableColumnModel columnModel = table.getColumnModel(); 
-           String[] choices = { "Present", "Absent", "Excuse" };
-            JComboBox<String> attendanceComboBox = new JComboBox<>(choices);
+      String[] choices = { "Male", "Female"};
+       JComboBox<String> gender = new JComboBox<String>(choices);
+       table.getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(gender));
 
-           for (int i = 4; i <= 8; i++) {
-           try {
-              TableColumn column = columnModel.getColumn(i);
-               column.setCellEditor(new DefaultCellEditor(attendanceComboBox));
-                 } catch (ArrayIndexOutOfBoundsException e) {
-                    System.err.println("Error: Column index " + i + " is out of bounds. Skipping.");
-                     }
-                        }
-       
+      
        
         addButton = new JButton("Add New Row");
         addButton.setFont(new Font("Serif", Font.BOLD, 16));
@@ -120,21 +102,21 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        bagrasFrame.add(scrollPane);
-        bagrasFrame.add(headerPanel);
-        bagrasFrame.add(addButton);
-        bagrasFrame.add(delButton);
-        bagrasFrame.add(returnButton);
+        IEFrame.add(scrollPane);
+        IEFrame.add(headerPanel);
+        IEFrame.add(addButton);
+        IEFrame.add(delButton);
+        IEFrame.add(returnButton);
 
-        bagrasFrame.pack();
-        bagrasFrame.setVisible(true);
+        IEFrame.pack();
+        IEFrame.setVisible(true);
         
         
        
             }
      private void addRow() {
 
-        model.addRow(new Object[]{"","","","","Select Status","Select Status","Select Status","Select Status", "Select Status"});
+        model.addRow(new Object[]{"","","","","","","Select Gender",""});
 
     }
 
@@ -153,9 +135,9 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
         }
     }
         if(e.getSource() == returnButton){
-           bagrasFrame.dispose();
-           BagrasSectionRecord ns = new BagrasSectionRecord();
-           ns.BagrasSectionRecord();
+           IEFrame.dispose();
+           IESectionRecord IE = new IESectionRecord();
+           IE.IESectionRecord();
         }
     }
 }

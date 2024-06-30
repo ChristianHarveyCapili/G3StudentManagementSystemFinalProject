@@ -4,7 +4,6 @@
  */
 package DIT;
 
-
 import java.awt.*;
 import static java.awt.Color.*;
 import java.awt.event.*;
@@ -17,11 +16,11 @@ import javax.swing.table.*;
  *
  * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public class TalisayStudentGrade extends JFrame implements ActionListener {
+public class DITStudentAttendance extends JFrame implements ActionListener {
     
-JFrame talisayFrame;
+    JFrame DITFrame;
     JPanel headerPanel;
-    JLabel headerLabel, subheaderLabel;
+    JLabel headerLabel,subheaderLabel;
     JTable table;
     Color tableBorderColor;
     JTableHeader tableHeader;
@@ -30,37 +29,38 @@ JFrame talisayFrame;
     JButton addButton,returnButton,delButton;
     
     
-    public TalisayStudentGrade() {
+    public DITStudentAttendance() {
         
-        talisayFrame = new JFrame();
-        talisayFrame.setTitle("Student Grade");
-        talisayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        talisayFrame.setPreferredSize(new Dimension(1000, 800));
-        talisayFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        talisayFrame.setLayout(null);
-        talisayFrame.pack();
-        talisayFrame.setLocationRelativeTo(null);
-        talisayFrame.setResizable(false);
+        DITFrame = new JFrame();
+        DITFrame.setTitle("Student Attendance");
+        DITFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DITFrame.setPreferredSize(new Dimension(1000, 800));
+        DITFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        DITFrame.setLayout(null);
+        DITFrame.pack();
+        DITFrame.setLocationRelativeTo(null);
+        DITFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
         headerPanel.setBounds(0, 0, 1000, 100);
         
-        headerLabel = new JLabel("STUDENT GRADE RECORD");
-        headerLabel.setPreferredSize(new Dimension(400, 100)); 
+        headerLabel = new JLabel("STUDENT ATTENDANCE RECORD");
+        headerLabel.setPreferredSize(new Dimension(450, 100));
         headerLabel.setForeground(Color.WHITE);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Talisay");
+        subheaderLabel = new JLabel("Course - DIT");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        talisayFrame.add(subheaderLabel);
+        DITFrame.add(subheaderLabel);
         
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
+        
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 0);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -76,7 +76,19 @@ JFrame talisayFrame;
        tableBorderColor = new Color(0, 0, 0);
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));
          
-     
+       
+      TableColumnModel columnModel = table.getColumnModel(); 
+           String[] choices = { "Present", "Absent", "Excuse" };
+            JComboBox<String> attendanceComboBox = new JComboBox<>(choices);
+
+           for (int i = 4; i <= 8; i++) {
+           try {
+              TableColumn column = columnModel.getColumn(i);
+               column.setCellEditor(new DefaultCellEditor(attendanceComboBox));
+                 } catch (ArrayIndexOutOfBoundsException e) {
+                    System.err.println("Error: Column index " + i + " is out of bounds. Skipping.");
+                     }
+                        }
        
        
         addButton = new JButton("Add New Row");
@@ -107,23 +119,28 @@ JFrame talisayFrame;
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        talisayFrame.add(scrollPane);
-        talisayFrame.add(headerPanel);
-        talisayFrame.add(addButton);
-        talisayFrame.add(delButton);
-        talisayFrame.add(returnButton);
+        DITFrame.add(scrollPane);
+        DITFrame.add(headerPanel);
+        DITFrame.add(addButton);
+        DITFrame.add(delButton);
+        DITFrame.add(returnButton);
 
-        talisayFrame.pack();
-        talisayFrame.setVisible(true);
+        DITFrame.pack();
+        DITFrame.setVisible(true);
         
-             
+        
+       
             }
-    
-     @Override
+     private void addRow() {
+
+        model.addRow(new Object[]{"","","","","Select Status","Select Status","Select Status","Select Status", "Select Status"});
+
+    }
+
+    @Override
     public void actionPerformed(ActionEvent e) {
-        
         if (e.getSource() == addButton) {
-            model.addRow(new Object[model.getColumnCount()]);
+                addRow();
         }             
         if (e.getSource() == delButton) {
                  int selectedRow = table.getSelectedRow();
@@ -131,17 +148,13 @@ JFrame talisayFrame;
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.removeRow(selectedRow);
         } else {
-            JOptionPane.showMessageDialog(this, "Error!! Please Select row to delete!", "!!!", JOptionPane.ERROR_MESSAGE);
-           talisayFrame.dispose();
-           TalisaySectionRecord ns = new TalisaySectionRecord();
-           ns.TalisaySectionRecord();
+            JOptionPane.showMessageDialog(this, "Error! Please select row to delete.", "!!!", JOptionPane.ERROR_MESSAGE);
         }
     }
-                if(e.getSource() == returnButton){
-           talisayFrame.dispose();
-           TalisaySectionRecord ns = new TalisaySectionRecord();
-           ns.TalisaySectionRecord();
+        if(e.getSource() == returnButton){
+           DITFrame.dispose();
+           DITSectionRecord ns = new DITSectionRecord();
+           ns.DITSectionRecord();
         }
+    }
 }
-}
-

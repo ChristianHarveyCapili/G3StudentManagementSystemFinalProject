@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
  *
  * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public class TalisaySectionRecord implements ActionListener {
+public class DITSectionRecord implements ActionListener {
    JFrame frame = new JFrame();
    JLabel welcomeLabel = new JLabel("WELCOME TO");
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
@@ -28,7 +28,7 @@ public class TalisaySectionRecord implements ActionListener {
    private ImageIcon schoollogo = new ImageIcon("tnismall.png");
    private JLabel logo = new JLabel(schoollogo);
    
-    public void TalisaySectionRecord(){
+    public void DITSectionRecord(){
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,600 );
@@ -107,17 +107,17 @@ public class TalisaySectionRecord implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == studentButton){
             frame.dispose();
-            TalisayStudentRecord record = new TalisayStudentRecord();
+            DITStudentRecord record = new DITStudentRecord();
                 }
         
         else if(e.getSource() == gradeButton){
             frame.dispose();
-            TalisayStudentGrade grade = new TalisayStudentGrade();
+            DITStudentGrade grade = new DITStudentGrade();
                 }
         
         else if(e.getSource() == attendanceButton){
             frame.dispose();
-            TalisayStudentAttendance attendance = new TalisayStudentAttendance();
+            DITStudentAttendance attendance = new DITStudentAttendance();
                 }
         else if(e.getSource()  ==returnStudentSection){
             frame.dispose();

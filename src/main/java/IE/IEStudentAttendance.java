@@ -1,5 +1,6 @@
 package IE;
 
+
 import java.awt.*;
 import static java.awt.Color.*;
 import java.awt.event.*;
@@ -8,11 +9,11 @@ import javax.swing.border.*;
 import javax.swing.table.*;
 
 
-public class MahoganyStudentRecord extends JFrame implements ActionListener {
+public class IEStudentAttendance extends JFrame implements ActionListener {
     
-    JFrame mahoganyFrame;
+    JFrame IEFrame;
     JPanel headerPanel;
-    JLabel headerLabel, subheaderLabel;
+    JLabel headerLabel,subheaderLabel;
     JTable table;
     Color tableBorderColor;
     JTableHeader tableHeader;
@@ -21,37 +22,38 @@ public class MahoganyStudentRecord extends JFrame implements ActionListener {
     JButton addButton,returnButton,delButton;
     
     
-    public MahoganyStudentRecord() {
+    public IEStudentAttendance() {
         
-        mahoganyFrame = new JFrame();
-        mahoganyFrame.setTitle("Student Attendance");
-        mahoganyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mahoganyFrame.setPreferredSize(new Dimension(1000, 800));
-        mahoganyFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        mahoganyFrame.setLayout(null);
-        mahoganyFrame.pack();
-        mahoganyFrame.setLocationRelativeTo(null);
-        mahoganyFrame.setResizable(false);
+        IEFrame = new JFrame();
+        IEFrame.setTitle("Student Attendance");
+        IEFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        IEFrame.setPreferredSize(new Dimension(1000, 800));
+        IEFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        IEFrame.setLayout(null);
+        IEFrame.pack();
+        IEFrame.setLocationRelativeTo(null);
+        IEFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
         headerPanel.setBounds(0, 0, 1000, 100);
         
         headerLabel = new JLabel("STUDENT ATTENDANCE RECORD");
-        headerLabel.setPreferredSize(new Dimension(450, 100)); 
+        headerLabel.setPreferredSize(new Dimension(450, 100));
         headerLabel.setForeground(Color.WHITE);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Mahogany");
+        subheaderLabel = new JLabel("Course - IE");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        mahoganyFrame.add(subheaderLabel);
+        IEFrame.add(subheaderLabel);
         
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Age","Birthday","Gender","Contact No."}, 0);
+        
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 0);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -68,11 +70,19 @@ public class MahoganyStudentRecord extends JFrame implements ActionListener {
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));
          
        
-      String[] choices = { "Male", "Female"};
-       JComboBox<String> gender = new JComboBox<String>(choices);
-       table.getColumnModel().getColumn(6).setCellEditor(new DefaultCellEditor(gender));
+      TableColumnModel columnModel = table.getColumnModel(); 
+           String[] choices = { "Present", "Absent", "Excuse" };
+            JComboBox<String> attendanceComboBox = new JComboBox<>(choices);
 
-      
+           for (int i = 4; i <= 8; i++) {
+           try {
+              TableColumn column = columnModel.getColumn(i);
+               column.setCellEditor(new DefaultCellEditor(attendanceComboBox));
+                 } catch (ArrayIndexOutOfBoundsException e) {
+                    System.err.println("Error: Column index " + i + " is out of bounds. Skipping.");
+                     }
+                        }
+       
        
         addButton = new JButton("Add New Row");
         addButton.setFont(new Font("Serif", Font.BOLD, 16));
@@ -102,21 +112,21 @@ public class MahoganyStudentRecord extends JFrame implements ActionListener {
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        mahoganyFrame.add(scrollPane);
-        mahoganyFrame.add(headerPanel);
-        mahoganyFrame.add(addButton);
-        mahoganyFrame.add(delButton);
-        mahoganyFrame.add(returnButton);
+        IEFrame.add(scrollPane);
+        IEFrame.add(headerPanel);
+        IEFrame.add(addButton);
+        IEFrame.add(delButton);
+        IEFrame.add(returnButton);
 
-        mahoganyFrame.pack();
-        mahoganyFrame.setVisible(true);
+        IEFrame.pack();
+        IEFrame.setVisible(true);
         
         
        
             }
      private void addRow() {
 
-        model.addRow(new Object[]{"","","","","","","Select Gender",""});
+        model.addRow(new Object[]{"","","","","Select Status","Select Status","Select Status","Select Status", "Select Status"});
 
     }
 
@@ -135,9 +145,9 @@ public class MahoganyStudentRecord extends JFrame implements ActionListener {
         }
     }
         if(e.getSource() == returnButton){
-           mahoganyFrame.dispose();
-           MahoganySectionRecord ms = new MahoganySectionRecord();
-           ms.MahoganySectionRecord();
+           IEFrame.dispose();
+           IESectionRecord IE = new IESectionRecord();
+           IE.IESectionRecord();
         }
     }
 }

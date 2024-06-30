@@ -11,9 +11,9 @@ import javax.swing.table.*;
  *
  * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public class MahoganyStudentGrade extends JFrame implements ActionListener {
+public class IEStudentGrade extends JFrame implements ActionListener {
     
-    JFrame mahoganyFrame;
+    JFrame IEFrame;
     JPanel headerPanel;
     JLabel headerLabel, subheaderLabel;
     JTable table;
@@ -24,17 +24,17 @@ public class MahoganyStudentGrade extends JFrame implements ActionListener {
     JButton addButton,returnButton,delButton;
     
     
-    public MahoganyStudentGrade() {
+    public IEStudentGrade() {
         
-        mahoganyFrame = new JFrame();
-        mahoganyFrame.setTitle("Student Grade");
-        mahoganyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mahoganyFrame.setPreferredSize(new Dimension(1000, 800));
-        mahoganyFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        mahoganyFrame.setLayout(null);
-        mahoganyFrame.pack();
-        mahoganyFrame.setLocationRelativeTo(null);
-        mahoganyFrame.setResizable(false);
+        IEFrame = new JFrame();
+        IEFrame.setTitle("Student Grade");
+        IEFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        IEFrame.setPreferredSize(new Dimension(1000, 800));
+        IEFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        IEFrame.setLayout(null);
+        IEFrame.pack();
+        IEFrame.setLocationRelativeTo(null);
+        IEFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
@@ -47,12 +47,12 @@ public class MahoganyStudentGrade extends JFrame implements ActionListener {
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Narra");
+        subheaderLabel = new JLabel("Course - IE");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        mahoganyFrame.add(subheaderLabel);
+        IEFrame.add(subheaderLabel);
         
         model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
         table = new JTable(model);
@@ -101,14 +101,14 @@ public class MahoganyStudentGrade extends JFrame implements ActionListener {
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        mahoganyFrame.add(scrollPane);
-        mahoganyFrame.add(headerPanel);
-        mahoganyFrame.add(addButton);
-        mahoganyFrame.add(delButton);
-        mahoganyFrame.add(returnButton);
+        IEFrame.add(scrollPane);
+        IEFrame.add(headerPanel);
+        IEFrame.add(addButton);
+        IEFrame.add(delButton);
+        IEFrame.add(returnButton);
 
-        mahoganyFrame.pack();
-        mahoganyFrame.setVisible(true);
+        IEFrame.pack();
+        IEFrame.setVisible(true);
         
              
             }
@@ -130,9 +130,9 @@ public class MahoganyStudentGrade extends JFrame implements ActionListener {
         }
     }
         if(e.getSource() == returnButton){
-           mahoganyFrame.dispose();
-           MahoganySectionRecord ms = new MahoganySectionRecord();
-           ms.MahoganySectionRecord();
+           IEFrame.dispose();
+          IESectionRecord IE = new IESectionRecord();
+           IE.IESectionRecord();
         }
     }
 }

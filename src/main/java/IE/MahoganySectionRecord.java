@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package NarraSection;
+package IE;
 
 import g3.studentmanagementsystem.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 /**
  *
- * @author Harvey
+ * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public class NarraSectionRecord implements ActionListener {
-     
+public  class MahoganySectionRecord implements ActionListener {
    JFrame frame = new JFrame();
    JLabel welcomeLabel = new JLabel("WELCOME TO");
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
@@ -25,8 +25,11 @@ public class NarraSectionRecord implements ActionListener {
    JButton returnStudentSection= new JButton("Return");
    private Color blue= new Color(0,74,173);
    private Color yellow = new Color(255,222,89);
+   private ImageIcon schoollogo = new ImageIcon("tnismall.png");
+   private JLabel logo = new JLabel(schoollogo);
    
-    public void NarraSectionRecord(){
+   
+   public void MahoganySectionRecord(){
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,600 );
@@ -36,7 +39,9 @@ public class NarraSectionRecord implements ActionListener {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         
-              
+        logo.setBounds(70, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
+        frame.add(logo);
+        
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setBounds(frame.getWidth()/2,0, frame.getWidth()/2,frame.getHeight());
@@ -102,21 +107,23 @@ public class NarraSectionRecord implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == studentButton){
             frame.dispose();
-            NarraStudentRecord record = new NarraStudentRecord();
+            MahoganyStudentRecord record = new MahoganyStudentRecord();
                 }
         
         else if(e.getSource() == gradeButton){
             frame.dispose();
-            NarraStudentGrade grade = new NarraStudentGrade();
+            MahoganyStudentGrade grade = new MahoganyStudentGrade();
                 }
         
         else if(e.getSource() == attendanceButton){
             frame.dispose();
-            NarraStudentAttendance attendance = new NarraStudentAttendance();
+            MahoganyStudentAttendance attendance = new MahoganyStudentAttendance();
                 }
         else if(e.getSource() == returnStudentSection){
-        frame.dispose();
-        StudentSection ss = new StudentSection();
+            frame.dispose();
+            StudentSection studentsection = new StudentSection();
+            
+            
         }
         else {
         System.out.println("Unexpected button clicked!");

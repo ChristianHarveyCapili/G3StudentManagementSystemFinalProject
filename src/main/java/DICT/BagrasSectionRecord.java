@@ -1,33 +1,34 @@
-package MahoganySection;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package DICT;
 
 import g3.studentmanagementsystem.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import javax.swing.SwingConstants;
 
 /**
  *
- * @author DEAN MARC PECHAYCO
+ * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public  class MahoganySectionRecord implements ActionListener {
-   JFrame frame = new JFrame();
+public class BagrasSectionRecord implements ActionListener {
+    JFrame frame = new JFrame();
    JLabel welcomeLabel = new JLabel("WELCOME TO");
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
    JLabel selectLabel = new JLabel ("Select an option:");
    JButton studentButton = new JButton("STUDENT RECORD");
    JButton gradeButton = new JButton("GRADE");
    JButton attendanceButton = new JButton("ATTENDANCE");
-   JButton returnStudentSection= new JButton("Return");
+   JButton returnStudentSection = new JButton("Return");
    private Color blue= new Color(0,74,173);
    private Color yellow = new Color(255,222,89);
+   private ImageIcon schoollogo = new ImageIcon("tnismall.png");
+   private JLabel logo = new JLabel(schoollogo);
    
-   
-   public void MahoganySectionRecord(){
+   public void BagrasSectionRecord(){
        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,600 );
@@ -36,6 +37,9 @@ public  class MahoganySectionRecord implements ActionListener {
         frame.getContentPane().setBackground(blue);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
+        
+        logo.setBounds(70, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
+        frame.add(logo);
         
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -77,12 +81,14 @@ public  class MahoganySectionRecord implements ActionListener {
         attendanceButton.setFocusable(false);
         attendanceButton.addActionListener(this);
         panel.add(attendanceButton);
-     
+        
         returnStudentSection.setBounds(50, 410,panel.getWidth()-100 , 50);
         returnStudentSection.setFont(new Font("Verdana", Font.BOLD, 15));
         returnStudentSection.setFocusable(false);
         returnStudentSection.addActionListener(this);
         panel.add(returnStudentSection);
+        
+     
              
         ImageIcon image = new ImageIcon ("C:\\Users\\User\\OneDrive\\Documents\\NetBeansProjects\\Project\\src\\main\\java\\Images\\Logo.png");
         
@@ -102,24 +108,22 @@ public  class MahoganySectionRecord implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == studentButton){
             frame.dispose();
-            MahoganyStudentRecord record = new MahoganyStudentRecord();
+            BagrasStudentRecord record = new BagrasStudentRecord();
                 }
         
         else if(e.getSource() == gradeButton){
             frame.dispose();
-            MahoganyStudentGrade grade = new MahoganyStudentGrade();
+            BagrasStudentGrade grade = new BagrasStudentGrade();
                 }
         
         else if(e.getSource() == attendanceButton){
             frame.dispose();
-            MahoganyStudentAttendance attendance = new MahoganyStudentAttendance();
+            BagrasStudentAttendance attendance = new BagrasStudentAttendance();
                 }
         else if(e.getSource() == returnStudentSection){
             frame.dispose();
-            StudentSection studentsection = new StudentSection();
-            
-            
-        }
+            StudentSection ss = new StudentSection();
+                }
         else {
         System.out.println("Unexpected button clicked!");
     }

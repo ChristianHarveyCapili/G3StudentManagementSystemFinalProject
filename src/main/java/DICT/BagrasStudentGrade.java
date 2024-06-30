@@ -2,8 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package TalisaySection;
-
+package DICT;
 
 import java.awt.*;
 import static java.awt.Color.*;
@@ -15,11 +14,11 @@ import javax.swing.table.*;
 
 /**
  *
- * @author DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
+ * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public class TalisayStudentGrade extends JFrame implements ActionListener {
+public class BagrasStudentGrade extends JFrame implements ActionListener {
     
-JFrame talisayFrame;
+JFrame bagrasFrame;
     JPanel headerPanel;
     JLabel headerLabel, subheaderLabel;
     JTable table;
@@ -30,17 +29,17 @@ JFrame talisayFrame;
     JButton addButton,returnButton,delButton;
     
     
-    public TalisayStudentGrade() {
+    public BagrasStudentGrade() {
         
-        talisayFrame = new JFrame();
-        talisayFrame.setTitle("Student Grade");
-        talisayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        talisayFrame.setPreferredSize(new Dimension(1000, 800));
-        talisayFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        talisayFrame.setLayout(null);
-        talisayFrame.pack();
-        talisayFrame.setLocationRelativeTo(null);
-        talisayFrame.setResizable(false);
+        bagrasFrame = new JFrame();
+        bagrasFrame.setTitle("Student Grade");
+        bagrasFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        bagrasFrame.setPreferredSize(new Dimension(1000, 800));
+        bagrasFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        bagrasFrame.setLayout(null);
+        bagrasFrame.pack();
+        bagrasFrame.setLocationRelativeTo(null);
+        bagrasFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
@@ -53,12 +52,12 @@ JFrame talisayFrame;
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Talisay");
+        subheaderLabel = new JLabel("Section - Bagras");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        talisayFrame.add(subheaderLabel);
+        bagrasFrame.add(subheaderLabel);
         
         model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
         table = new JTable(model);
@@ -107,14 +106,14 @@ JFrame talisayFrame;
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        talisayFrame.add(scrollPane);
-        talisayFrame.add(headerPanel);
-        talisayFrame.add(addButton);
-        talisayFrame.add(delButton);
-        talisayFrame.add(returnButton);
+        bagrasFrame.add(scrollPane);
+        bagrasFrame.add(headerPanel);
+        bagrasFrame.add(addButton);
+        bagrasFrame.add(delButton);
+        bagrasFrame.add(returnButton);
 
-        talisayFrame.pack();
-        talisayFrame.setVisible(true);
+        bagrasFrame.pack();
+        bagrasFrame.setVisible(true);
         
              
             }
@@ -132,16 +131,15 @@ JFrame talisayFrame;
             model.removeRow(selectedRow);
         } else {
             JOptionPane.showMessageDialog(this, "Error!! Please Select row to delete!", "!!!", JOptionPane.ERROR_MESSAGE);
-           talisayFrame.dispose();
-           TalisaySectionRecord ns = new TalisaySectionRecord();
-           ns.TalisaySectionRecord();
+           bagrasFrame.dispose();
+           BagrasSectionRecord ns = new BagrasSectionRecord();
+           ns.BagrasSectionRecord();
         }
     }
-                if(e.getSource() == returnButton){
-           talisayFrame.dispose();
-           TalisaySectionRecord ns = new TalisaySectionRecord();
-           ns.TalisaySectionRecord();
-        }
+        if(e.getSource() == returnButton){
+           bagrasFrame.dispose();
+           BagrasSectionRecord ns = new BagrasSectionRecord();
+           ns.BagrasSectionRecord();
 }
-}
+}}
 

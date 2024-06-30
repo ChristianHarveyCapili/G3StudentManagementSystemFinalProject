@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package BagrasSection;
-
+package IE;
 
 import java.awt.*;
 import static java.awt.Color.*;
@@ -12,16 +7,15 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.*;
 
-
 /**
  *
- * @author DEAN MARC PECHAYCO
+ * @author CHRISTIAN HARVEY CAPILI, DEAN MARC PECHAYCO, ALDRIN KYLE ALMENANZA
  */
-public class BagrasStudentAttendance extends JFrame implements ActionListener {
+public class MahoganyStudentGrade extends JFrame implements ActionListener {
     
-    JFrame bagrasFrame;
+    JFrame mahoganyFrame;
     JPanel headerPanel;
-    JLabel headerLabel,subheaderLabel;
+    JLabel headerLabel, subheaderLabel;
     JTable table;
     Color tableBorderColor;
     JTableHeader tableHeader;
@@ -30,38 +24,37 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
     JButton addButton,returnButton,delButton;
     
     
-    public BagrasStudentAttendance() {
+    public MahoganyStudentGrade() {
         
-        bagrasFrame = new JFrame();
-        bagrasFrame.setTitle("Student Attendance");
-        bagrasFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        bagrasFrame.setPreferredSize(new Dimension(1000, 800));
-        bagrasFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        bagrasFrame.setLayout(null);
-        bagrasFrame.pack();
-        bagrasFrame.setLocationRelativeTo(null);
-        bagrasFrame.setResizable(false);
+        mahoganyFrame = new JFrame();
+        mahoganyFrame.setTitle("Student Grade");
+        mahoganyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mahoganyFrame.setPreferredSize(new Dimension(1000, 800));
+        mahoganyFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        mahoganyFrame.setLayout(null);
+        mahoganyFrame.pack();
+        mahoganyFrame.setLocationRelativeTo(null);
+        mahoganyFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
         headerPanel.setBounds(0, 0, 1000, 100);
         
-        headerLabel = new JLabel("STUDENT ATTENDANCE RECORD");
-        headerLabel.setPreferredSize(new Dimension(450, 100));
+        headerLabel = new JLabel("STUDENT GRADE RECORD");
+        headerLabel.setPreferredSize(new Dimension(400, 100)); 
         headerLabel.setForeground(Color.WHITE);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Bagras");
+        subheaderLabel = new JLabel("Section - Narra");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        bagrasFrame.add(subheaderLabel);
+        mahoganyFrame.add(subheaderLabel);
         
-        
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 0);
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -77,19 +70,7 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
        tableBorderColor = new Color(0, 0, 0);
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));
          
-       
-      TableColumnModel columnModel = table.getColumnModel(); 
-           String[] choices = { "Present", "Absent", "Excuse" };
-            JComboBox<String> attendanceComboBox = new JComboBox<>(choices);
-
-           for (int i = 4; i <= 8; i++) {
-           try {
-              TableColumn column = columnModel.getColumn(i);
-               column.setCellEditor(new DefaultCellEditor(attendanceComboBox));
-                 } catch (ArrayIndexOutOfBoundsException e) {
-                    System.err.println("Error: Column index " + i + " is out of bounds. Skipping.");
-                     }
-                        }
+     
        
        
         addButton = new JButton("Add New Row");
@@ -120,28 +101,24 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        bagrasFrame.add(scrollPane);
-        bagrasFrame.add(headerPanel);
-        bagrasFrame.add(addButton);
-        bagrasFrame.add(delButton);
-        bagrasFrame.add(returnButton);
+        mahoganyFrame.add(scrollPane);
+        mahoganyFrame.add(headerPanel);
+        mahoganyFrame.add(addButton);
+        mahoganyFrame.add(delButton);
+        mahoganyFrame.add(returnButton);
 
-        bagrasFrame.pack();
-        bagrasFrame.setVisible(true);
+        mahoganyFrame.pack();
+        mahoganyFrame.setVisible(true);
         
-        
-       
+             
             }
-     private void addRow() {
-
-        model.addRow(new Object[]{"","","","","Select Status","Select Status","Select Status","Select Status", "Select Status"});
-
-    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         if (e.getSource() == addButton) {
-                addRow();
+            model.addRow(new Object[model.getColumnCount()]);
         }             
         if (e.getSource() == delButton) {
                  int selectedRow = table.getSelectedRow();
@@ -153,9 +130,9 @@ public class BagrasStudentAttendance extends JFrame implements ActionListener {
         }
     }
         if(e.getSource() == returnButton){
-           bagrasFrame.dispose();
-           BagrasSectionRecord ns = new BagrasSectionRecord();
-           ns.BagrasSectionRecord();
+           mahoganyFrame.dispose();
+           MahoganySectionRecord ms = new MahoganySectionRecord();
+           ms.MahoganySectionRecord();
         }
     }
 }

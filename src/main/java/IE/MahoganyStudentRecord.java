@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package NarraSection;
+package IE;
 
 import java.awt.*;
 import static java.awt.Color.*;
@@ -11,13 +7,10 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.*;
 
-/**
- *
- * @author DEAN MARC PECHAYCO
- */
-public class NarraStudentRecord extends JFrame implements ActionListener {
+
+public class MahoganyStudentRecord extends JFrame implements ActionListener {
     
-    JFrame narraFrame;
+    JFrame mahoganyFrame;
     JPanel headerPanel;
     JLabel headerLabel, subheaderLabel;
     JTable table;
@@ -28,17 +21,17 @@ public class NarraStudentRecord extends JFrame implements ActionListener {
     JButton addButton,returnButton,delButton;
     
     
-    public NarraStudentRecord() {
+    public MahoganyStudentRecord() {
         
-        narraFrame = new JFrame();
-        narraFrame.setTitle("Student Attendance");
-        narraFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        narraFrame.setPreferredSize(new Dimension(1000, 800));
-        narraFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        narraFrame.setLayout(null);
-        narraFrame.pack();
-        narraFrame.setLocationRelativeTo(null);
-        narraFrame.setResizable(false);
+        mahoganyFrame = new JFrame();
+        mahoganyFrame.setTitle("Student Attendance");
+        mahoganyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mahoganyFrame.setPreferredSize(new Dimension(1000, 800));
+        mahoganyFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        mahoganyFrame.setLayout(null);
+        mahoganyFrame.pack();
+        mahoganyFrame.setLocationRelativeTo(null);
+        mahoganyFrame.setResizable(false);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
@@ -51,12 +44,12 @@ public class NarraStudentRecord extends JFrame implements ActionListener {
         headerLabel.setForeground(black);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Section - Narra");
+        subheaderLabel = new JLabel("Section - Mahogany");
         subheaderLabel.setBounds(400, 50, 500, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        narraFrame.add(subheaderLabel);
+        mahoganyFrame.add(subheaderLabel);
         
         model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Age","Birthday","Gender","Contact No."}, 0);
         table = new JTable(model);
@@ -109,14 +102,14 @@ public class NarraStudentRecord extends JFrame implements ActionListener {
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        narraFrame.add(scrollPane);
-        narraFrame.add(headerPanel);
-        narraFrame.add(addButton);
-        narraFrame.add(delButton);
-        narraFrame.add(returnButton);
+        mahoganyFrame.add(scrollPane);
+        mahoganyFrame.add(headerPanel);
+        mahoganyFrame.add(addButton);
+        mahoganyFrame.add(delButton);
+        mahoganyFrame.add(returnButton);
 
-        narraFrame.pack();
-        narraFrame.setVisible(true);
+        mahoganyFrame.pack();
+        mahoganyFrame.setVisible(true);
         
         
        
@@ -142,9 +135,9 @@ public class NarraStudentRecord extends JFrame implements ActionListener {
         }
     }
         if(e.getSource() == returnButton){
-           narraFrame.dispose();
-           NarraSectionRecord ns = new NarraSectionRecord();
-           ns.NarraSectionRecord();
+           mahoganyFrame.dispose();
+           MahoganySectionRecord ms = new MahoganySectionRecord();
+           ms.MahoganySectionRecord();
         }
     }
 }

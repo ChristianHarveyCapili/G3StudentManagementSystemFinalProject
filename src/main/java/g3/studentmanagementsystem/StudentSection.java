@@ -4,10 +4,10 @@
  */
 package g3.studentmanagementsystem;
 
-import NarraSection.*;
-import MahoganySection.*;
-import BagrasSection.*;
-import TalisaySection.*;
+import DIT.TalisaySectionRecord;
+import IE.MahoganySectionRecord;
+import DICT.BagrasSectionRecord;
+import BSIT.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -24,7 +24,7 @@ public class StudentSection implements ActionListener {
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
    JLabel selectLabel = new JLabel ("Select Student Section:");
    JButton btnMahogany = new JButton("Section Mahogany");
-   JButton btnNarra = new JButton("Section Narra");
+   JButton btnBSIT = new JButton("BSIT COURSE");
    JButton btnBagras = new JButton("Section Bagras");
    JButton btnTalisay = new JButton("Section Talisay");
    private Color yellow = new Color(255,222,89);
@@ -67,17 +67,17 @@ public class StudentSection implements ActionListener {
         panel.add(selectLabel);
         
         //Buttons
-        btnMahogany.setBounds(50, 200,panel.getWidth()-100, 50);
+        btnMahogany.setBounds(50, 270,panel.getWidth()-100, 50);
         btnMahogany.setFont(new Font("Verdana", Font.BOLD, 15));
         btnMahogany.setFocusable(false);
         btnMahogany.addActionListener(this);
         panel.add(btnMahogany);
         
-        btnNarra.setBounds(50, 270, panel.getWidth()-100 , 50);
-        btnNarra.setFont(new Font("Verdana", Font.BOLD, 15));
-        btnNarra.setFocusable(false);
-        btnNarra.addActionListener(this);
-        panel.add(btnNarra);
+        btnBSIT.setBounds(50, 200, panel.getWidth()-100 , 50);
+        btnBSIT.setFont(new Font("Verdana", Font.BOLD, 15));
+        btnBSIT.setFocusable(false);
+        btnBSIT.addActionListener(this);
+        panel.add(btnBSIT);
         
         btnBagras.setBounds(50, 340,panel.getWidth()-100 , 50);
         btnBagras.setFont(new Font("Verdana", Font.BOLD, 15));
@@ -90,9 +90,7 @@ public class StudentSection implements ActionListener {
         btnTalisay.setFocusable(false);
         btnTalisay.addActionListener(this);
         panel.add(btnTalisay);     
-        
-        ImageIcon image = new ImageIcon ();
-        
+             
         logo.setBounds(70, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
         frame.add(logo);
 
@@ -107,10 +105,10 @@ public class StudentSection implements ActionListener {
             ms.MahoganySectionRecord();
             }
         
-        else if(e.getSource() == btnNarra){
+        else if(e.getSource() == btnBSIT){
             frame.dispose();
-            NarraSectionRecord ns = new NarraSectionRecord();
-            ns.NarraSectionRecord();
+            BSITSectionRecord bs = new BSITSectionRecord();
+            bs.BSITSectionRecord();
                 }
         
         else if(e.getSource() == btnBagras){
@@ -126,9 +124,5 @@ public class StudentSection implements ActionListener {
         else {
         System.out.println("Unexpected button clicked!");
     }
-    }
-
-    public void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

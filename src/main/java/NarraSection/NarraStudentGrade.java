@@ -4,77 +4,137 @@
  */
 package NarraSection;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.event.*;
 import java.awt.*;
+import static java.awt.Color.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.table.*;
+
 /**
  *
- * @author Harvey
+ * @author DEAN MARC PECHAYCO
  */
-public class NarraStudentGrade implements ActionListener {
-      //private JPanel header,footer; still working on this part
-    private JFrame frame = new JFrame ("STUDENT GRADE");
-    private JTable table;
-    private DefaultTableModel model;
-    private JButton addButton, deleteButton, returnButton;  
+public class NarraStudentGrade extends JFrame implements ActionListener {
+    
+    JFrame narraFrame;
+    JPanel headerPanel;
+    JLabel headerLabel, subheaderLabel;
+    JTable table;
+    Color tableBorderColor;
+    JTableHeader tableHeader;
+    JScrollPane scrollPane;
+    DefaultTableModel model;
+    JButton addButton,returnButton,delButton;
+    
     
     public NarraStudentGrade() {
         
-        String[] StudentInfo = { "Student No.","Last Name","First Name", "Middle Name","English","Mathematics","Science","Filipino" };
-
-        model = new DefaultTableModel(StudentInfo, 0);        
-        table = new JTable(model);        
-                
-        //Buttons
-        addButton = new JButton("Add Student Grade");
-        addButton.addActionListener(this);
-        addButton.setBackground(Color.LIGHT_GRAY);
+        narraFrame = new JFrame();
+        narraFrame.setTitle("Student Grade");
+        narraFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        narraFrame.setPreferredSize(new Dimension(1000, 800));
+        narraFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        narraFrame.setLayout(null);
+        narraFrame.setLocationRelativeTo(null);
         
-        deleteButton = new JButton("Delete Student Grade");
-        deleteButton.addActionListener(this);
-        deleteButton.setBackground(Color.LIGHT_GRAY);
+        headerPanel = new JPanel();
+        headerPanel.setBackground(new Color(255, 222, 89));   
+        headerPanel.setBounds(0, 0, 1000, 100);
+        
+        headerLabel = new JLabel("STUDENT GRADE RECORD");
+        headerLabel.setPreferredSize(new Dimension(400, 100)); 
+        headerLabel.setForeground(Color.WHITE);
+        headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
+        headerLabel.setForeground(black);
+        headerPanel.add(headerLabel);
+        
+        subheaderLabel = new JLabel("Section - Narra");
+        subheaderLabel.setBounds(400, 50, 500, 50);
+        subheaderLabel.setForeground(Color.WHITE);
+        subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
+        subheaderLabel.setForeground(black);
+        narraFrame.add(subheaderLabel);
+        
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
+        table = new JTable(model);
+        table.setOpaque(false);
+        table.setBackground(new Color(245, 245, 220));
+        
+       tableHeader = table.getTableHeader();
+       table.getTableHeader().setBackground(new Color(255, 222, 89));
+       table.getTableHeader().setForeground(black);
+       table.getTableHeader().setFont(new Font("Arial Black", Font.BOLD, 13));
+       
+       scrollPane = new JScrollPane(table);
+       scrollPane.setBounds(35, 160, 900, 500);
+       
+       tableBorderColor = new Color(0, 0, 0);
+       scrollPane.setBorder(new LineBorder(tableBorderColor, 8));
+         
+     
+       
+       
+        addButton = new JButton("Add New Row");
+        addButton.setFont(new Font("Serif", Font.BOLD, 16));
+        addButton.setForeground(black);
+        addButton.setBackground(new Color(255, 222, 89));
+        addButton.setOpaque(true);
+        addButton.setBorder(null);
+        addButton.setBounds(50, 680, 200, 30);
+        addButton.addActionListener(this);
+        
+        delButton = new JButton("Delete Row");
+        delButton.setFont(new Font("Serif", Font.BOLD, 16));
+        delButton.setForeground(black);
+        delButton.setBackground(new Color(255, 222, 89));
+        delButton.setOpaque(true);
+        delButton.setBorder(null);
+        delButton.setBounds(270, 680, 200, 30);
+        delButton.addActionListener(this);
+        
         
         returnButton = new JButton("Return");
+        returnButton.setFont(new Font("Serif", Font.BOLD, 16));
+        returnButton.setForeground(black);
+        returnButton.setBackground(new Color (255, 222, 89));
+        returnButton.setOpaque(true);
+        returnButton.setBorder(null);
+        returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
-        returnButton.setBackground(Color.LIGHT_GRAY);
         
-        JScrollPane scrollPane = new JScrollPane(table);
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(addButton);
-        buttonPanel.add(deleteButton);
-        buttonPanel.add(returnButton);
-          
-        //frame
-        frame.add(scrollPane, java.awt.BorderLayout.CENTER);
-        frame.add(buttonPanel, java.awt.BorderLayout.SOUTH);      
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);     
-        frame.setVisible(true);
-        frame.setSize(800,600 );
-        frame.setResizable(false);
- 
-    }
+        narraFrame.add(scrollPane);
+        narraFrame.add(headerPanel);
+        narraFrame.add(addButton);
+        narraFrame.add(delButton);
+        narraFrame.add(returnButton);
+
+        narraFrame.pack();
+        narraFrame.setVisible(true);
+        
+             
+            }
+    
 
     @Override
-    //Button Actions
     public void actionPerformed(ActionEvent e) {
+        
         if (e.getSource() == addButton) {
-
             model.addRow(new Object[model.getColumnCount()]);
-        } else if (e.getSource() == returnButton) {
-           frame.dispose();
+        }             
+        if (e.getSource() == delButton) {
+                 int selectedRow = table.getSelectedRow();
+           if (selectedRow != -1) {
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.removeRow(selectedRow);
+        } else {
+            JOptionPane.showMessageDialog(this, "Error! Please select row to delete.", "!!!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+        if(e.getSource() == returnButton){
+           narraFrame.dispose();
            NarraSectionRecord ns = new NarraSectionRecord();
            ns.NarraSectionRecord();
-                                     
-        } else if (e.getSource() == deleteButton) {
-
-            int selectedRow = table.getSelectedRow();
-            if (selectedRow != -1) {
-                model.removeRow(selectedRow);
-        
-        }  else {
-                JOptionPane.showMessageDialog(frame, "Select a row to delete!");
-            }
         }
     }
 }

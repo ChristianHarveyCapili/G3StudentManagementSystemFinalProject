@@ -22,7 +22,7 @@ public class IEStudentGrade extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     DefaultTableModel model;
     JButton addButton,returnButton,delButton;
-    
+    ImageIcon schoollogoyellow;
     
     public IEStudentGrade() {
         
@@ -35,24 +35,33 @@ public class IEStudentGrade extends JFrame implements ActionListener {
         IEFrame.pack();
         IEFrame.setLocationRelativeTo(null);
         IEFrame.setResizable(false);
+        IEFrame.setVisible(true);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
-        headerPanel.setBounds(0, 0, 1000, 100);
+        headerPanel.setBounds(0, 0, 1000, 125);
+        headerPanel.setLayout(new BorderLayout());
         
-        headerLabel = new JLabel("STUDENT GRADE RECORD");
-        headerLabel.setPreferredSize(new Dimension(400, 100)); 
-        headerLabel.setForeground(Color.WHITE);
+        schoollogoyellow = new ImageIcon("tniyellowsmall.png");
+        Image resizedlogoyellow = schoollogoyellow.getImage().getScaledInstance(130,130, Image.SCALE_SMOOTH);
+        ImageIcon finallogoyellow = new ImageIcon(resizedlogoyellow);
+        JLabel logoyellow = new JLabel(finallogoyellow);
+        logoyellow.setBounds(160,0,130,130);
+        headerPanel.add(logoyellow);
+         
+        headerLabel = new JLabel("STUDENT GRADE RECORD");        
+        headerLabel.setForeground(Color.BLACK);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
-        headerLabel.setForeground(black);
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Course - IE");
-        subheaderLabel.setBounds(400, 50, 500, 50);
+        subheaderLabel = new JLabel("Course - IE", SwingConstants.CENTER);
+        subheaderLabel.setBounds(0, 60, 1000, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
         IEFrame.add(subheaderLabel);
+        
         
         model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
         table = new JTable(model);
@@ -70,7 +79,19 @@ public class IEStudentGrade extends JFrame implements ActionListener {
        tableBorderColor = new Color(0, 0, 0);
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));
          
-     
+       
+      TableColumnModel columnModel = table.getColumnModel(); 
+           String[] choices = { "Present", "Absent", "Excuse" };
+            JComboBox<String> attendanceComboBox = new JComboBox<>(choices);
+
+           for (int i = 4; i <= 8; i++) {
+           try {
+              TableColumn column = columnModel.getColumn(i);
+               column.setCellEditor(new DefaultCellEditor(attendanceComboBox));
+                 } catch (ArrayIndexOutOfBoundsException e) {
+                    System.err.println("Error: Column index " + i + " is out of bounds. Skipping.");
+                     }
+                        }
        
        
         addButton = new JButton("Add New Row");

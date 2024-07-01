@@ -1,7 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package g3.studentmanagementsystem;
 import java.awt.EventQueue;
 /**

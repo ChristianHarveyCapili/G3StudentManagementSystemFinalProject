@@ -60,7 +60,7 @@ public class Login implements ActionListener {
         
        logo.setBounds(20, 150, schoollogo.getIconWidth(), schoollogo.getIconHeight());
        frame.add(logo);
-       logoyellow.setBounds(470, 100, schoollogoyellow.getIconWidth(), schoollogoyellow.getIconHeight());
+       logoyellow.setBounds(420, 100, schoollogoyellow.getIconWidth(), schoollogoyellow.getIconHeight());       
        frame.add(logoyellow);
         
         JPanel panel = new JPanel();

@@ -14,7 +14,7 @@ import javax.swing.table.*;
 
 public class BSITStudentRecord extends JFrame implements ActionListener {
     
-    JFrame bsitFrame;
+    JFrame BSITFrame;
     JPanel headerPanel;
     JLabel headerLabel, subheaderLabel;
     JTable table;
@@ -23,37 +23,46 @@ public class BSITStudentRecord extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     DefaultTableModel model;
     JButton addButton,returnButton,delButton;
-    
+    ImageIcon schoollogoyellow;
     
     public BSITStudentRecord() {
         
-        bsitFrame = new JFrame();
-        bsitFrame.setTitle("Student Attendance");
-        bsitFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        bsitFrame.setPreferredSize(new Dimension(1000, 800));
-        bsitFrame.getContentPane().setBackground(new Color(0, 74, 173));
-        bsitFrame.setLayout(null);
-        bsitFrame.pack();
-        bsitFrame.setLocationRelativeTo(null);
-        bsitFrame.setResizable(false);
+        BSITFrame = new JFrame();
+        BSITFrame.setTitle("Student Attendance");
+        BSITFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        BSITFrame.setPreferredSize(new Dimension(1000, 800));
+        BSITFrame.getContentPane().setBackground(new Color(0, 74, 173));
+        BSITFrame.setLayout(null);
+        BSITFrame.pack();
+        BSITFrame.setLocationRelativeTo(null);
+        BSITFrame.setResizable(false);
+        BSITFrame.setVisible(true);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
-        headerPanel.setBounds(0, 0, 1000, 100);
+        headerPanel.setBounds(0, 0, 1000, 125);
+        headerPanel.setLayout(new BorderLayout());
         
-        headerLabel = new JLabel("STUDENT ATTENDANCE RECORD");
-        headerLabel.setPreferredSize(new Dimension(450, 100)); 
-        headerLabel.setForeground(Color.WHITE);
+        schoollogoyellow = new ImageIcon("tniyellowsmall.png");
+        Image resizedlogoyellow = schoollogoyellow.getImage().getScaledInstance(130,130, Image.SCALE_SMOOTH);
+        ImageIcon finallogoyellow = new ImageIcon(resizedlogoyellow);
+        JLabel logoyellow = new JLabel(finallogoyellow);
+        logoyellow.setBounds(150,0,130,125);
+        headerPanel.add(logoyellow);
+         
+        headerLabel = new JLabel("STUDENT INFORMATION RECORD");        
+        headerLabel.setForeground(Color.BLACK);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
-        headerLabel.setForeground(black);
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Course - BSIT");
-        subheaderLabel.setBounds(400, 50, 500, 50);
+        subheaderLabel = new JLabel("Course - BSIT", SwingConstants.CENTER);
+        subheaderLabel.setBounds(0, 60, 1000, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
-        bsitFrame.add(subheaderLabel);
+        BSITFrame.add(subheaderLabel);
+        
         
         model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Age","Birthday","Gender","Contact No."}, 0);
         table = new JTable(model);
@@ -106,14 +115,14 @@ public class BSITStudentRecord extends JFrame implements ActionListener {
         returnButton.setBounds(700, 680, 200, 30);
         returnButton.addActionListener(this);
         
-        bsitFrame.add(scrollPane);
-        bsitFrame.add(headerPanel);
-        bsitFrame.add(addButton);
-        bsitFrame.add(delButton);
-        bsitFrame.add(returnButton);
+        BSITFrame.add(scrollPane);
+        BSITFrame.add(headerPanel);
+        BSITFrame.add(addButton);
+        BSITFrame.add(delButton);
+        BSITFrame.add(returnButton);
 
-        bsitFrame.pack();
-        bsitFrame.setVisible(true);
+        BSITFrame.pack();
+        BSITFrame.setVisible(true);
         
         
        
@@ -139,7 +148,7 @@ public class BSITStudentRecord extends JFrame implements ActionListener {
         }
     }
         if(e.getSource() == returnButton){
-           bsitFrame.dispose();
+           BSITFrame.dispose();
            BSITSectionRecord bs = new BSITSectionRecord();
             bs.BSITSectionRecord();
     }

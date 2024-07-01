@@ -28,6 +28,7 @@ public class DICTStudentAttendance extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     DefaultTableModel model;
     JButton addButton,returnButton,delButton;
+    ImageIcon schoollogoyellow;
     
     
     public DICTStudentAttendance() {
@@ -41,20 +42,28 @@ public class DICTStudentAttendance extends JFrame implements ActionListener {
         DICTFrame.pack();
         DICTFrame.setLocationRelativeTo(null);
         DICTFrame.setResizable(false);
+        DICTFrame.setVisible(true);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
-        headerPanel.setBounds(0, 0, 1000, 100);
+        headerPanel.setBounds(0, 0, 1000, 125);
+        headerPanel.setLayout(new BorderLayout());
         
-        headerLabel = new JLabel("STUDENT ATTENDANCE RECORD");
-        headerLabel.setPreferredSize(new Dimension(450, 100));
-        headerLabel.setForeground(Color.WHITE);
+        schoollogoyellow = new ImageIcon("tniyellowsmall.png");
+        Image resizedlogoyellow = schoollogoyellow.getImage().getScaledInstance(130,130, Image.SCALE_SMOOTH);
+        ImageIcon finallogoyellow = new ImageIcon(resizedlogoyellow);
+        JLabel logoyellow = new JLabel(finallogoyellow);
+        logoyellow.setBounds(160,0,130,125);
+        headerPanel.add(logoyellow);
+         
+        headerLabel = new JLabel("STUDENT ATTENDANCE RECORD");        
+        headerLabel.setForeground(Color.BLACK);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
-        headerLabel.setForeground(black);
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Course - DICT");
-        subheaderLabel.setBounds(400, 50, 500, 50);
+        subheaderLabel = new JLabel("Course - DICT", SwingConstants.CENTER);
+        subheaderLabel.setBounds(0, 60, 1000, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
@@ -73,6 +82,7 @@ public class DICTStudentAttendance extends JFrame implements ActionListener {
        
        scrollPane = new JScrollPane(table);
        scrollPane.setBounds(35, 160, 900, 500);
+       
        
        tableBorderColor = new Color(0, 0, 0);
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));

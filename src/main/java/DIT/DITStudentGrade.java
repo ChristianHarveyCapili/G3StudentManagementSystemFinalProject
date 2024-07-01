@@ -20,6 +20,7 @@ import javax.swing.table.*;
 public class DITStudentGrade extends JFrame implements ActionListener {
     
 
+    JFrame DITFrame;
     JPanel headerPanel;
     JLabel headerLabel, subheaderLabel;
     JTable table;
@@ -28,8 +29,7 @@ public class DITStudentGrade extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     DefaultTableModel model;
     JButton addButton,returnButton,delButton;
-    JFrame DITFrame;
-    
+    ImageIcon schoollogoyellow;
     
     public DITStudentGrade() {
         
@@ -42,24 +42,33 @@ public class DITStudentGrade extends JFrame implements ActionListener {
         DITFrame.pack();
         DITFrame.setLocationRelativeTo(null);
         DITFrame.setResizable(false);
+        DITFrame.setVisible(true);
         
         headerPanel = new JPanel();
         headerPanel.setBackground(new Color(255, 222, 89));   
-        headerPanel.setBounds(0, 0, 1000, 100);
+        headerPanel.setBounds(0, 0, 1000, 125);
+        headerPanel.setLayout(new BorderLayout());
         
-        headerLabel = new JLabel("STUDENT GRADE RECORD");
-        headerLabel.setPreferredSize(new Dimension(400, 100)); 
-        headerLabel.setForeground(Color.WHITE);
+        schoollogoyellow = new ImageIcon("tniyellowsmall.png");
+        Image resizedlogoyellow = schoollogoyellow.getImage().getScaledInstance(130,130, Image.SCALE_SMOOTH);
+        ImageIcon finallogoyellow = new ImageIcon(resizedlogoyellow);
+        JLabel logoyellow = new JLabel(finallogoyellow);
+        logoyellow.setBounds(160,0,130,130);
+        headerPanel.add(logoyellow);
+         
+        headerLabel = new JLabel("STUDENT GRADE RECORD");        
+        headerLabel.setForeground(Color.BLACK);
         headerLabel.setFont(new Font("Trajan Pro", Font.BOLD, 24));
-        headerLabel.setForeground(black);
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
         headerPanel.add(headerLabel);
         
-        subheaderLabel = new JLabel("Course - DIT");
-        subheaderLabel.setBounds(400, 50, 500, 50);
+        subheaderLabel = new JLabel("Course - DIT", SwingConstants.CENTER);
+        subheaderLabel.setBounds(0, 60, 1000, 50);
         subheaderLabel.setForeground(Color.WHITE);
         subheaderLabel.setFont(new Font("Trajan Pro", Font.BOLD, 16));
         subheaderLabel.setForeground(black);
         DITFrame.add(subheaderLabel);
+        
         
         model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "English","Mathemathics","Science","Filipino"}, 0);
         table = new JTable(model);
@@ -77,7 +86,19 @@ public class DITStudentGrade extends JFrame implements ActionListener {
        tableBorderColor = new Color(0, 0, 0);
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));
          
-     
+       
+      TableColumnModel columnModel = table.getColumnModel(); 
+           String[] choices = { "Present", "Absent", "Excuse" };
+            JComboBox<String> attendanceComboBox = new JComboBox<>(choices);
+
+           for (int i = 4; i <= 8; i++) {
+           try {
+              TableColumn column = columnModel.getColumn(i);
+               column.setCellEditor(new DefaultCellEditor(attendanceComboBox));
+                 } catch (ArrayIndexOutOfBoundsException e) {
+                    System.err.println("Error: Column index " + i + " is out of bounds. Skipping.");
+                     }
+                        }
        
        
         addButton = new JButton("Add New Row");

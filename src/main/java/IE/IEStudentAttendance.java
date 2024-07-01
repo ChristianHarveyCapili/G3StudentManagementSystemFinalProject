@@ -64,7 +64,7 @@ public class IEStudentAttendance extends JFrame implements ActionListener {
        table.getTableHeader().setFont(new Font("Arial Black", Font.BOLD, 13));
        
        scrollPane = new JScrollPane(table);
-       scrollPane.setBounds(35, 160, 900, 500);
+       
        
        tableBorderColor = new Color(0, 0, 0);
        scrollPane.setBorder(new LineBorder(tableBorderColor, 8));

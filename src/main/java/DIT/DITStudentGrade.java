@@ -19,7 +19,7 @@ import javax.swing.table.*;
  */
 public class DITStudentGrade extends JFrame implements ActionListener {
     
-JFrame DITFrame;
+
     JPanel headerPanel;
     JLabel headerLabel, subheaderLabel;
     JTable table;
@@ -28,6 +28,7 @@ JFrame DITFrame;
     JScrollPane scrollPane;
     DefaultTableModel model;
     JButton addButton,returnButton,delButton;
+    JFrame DITFrame;
     
     
     public DITStudentGrade() {

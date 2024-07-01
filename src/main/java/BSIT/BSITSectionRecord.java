@@ -15,6 +15,7 @@ public class BSITSectionRecord implements ActionListener {
    JFrame frame = new JFrame();
    JLabel welcomeLabel = new JLabel("WELCOME TO");
    JLabel welcomesLabel = new JLabel("TECHNOVA INSTITUTE OF COMPUTER STUDIES");
+   JLabel lblBSIT = new JLabel("BSIT STUDENT RECORD");
    JLabel selectLabel = new JLabel ("Select an option:");
    JButton studentButton = new JButton("STUDENT RECORD");
    JButton gradeButton = new JButton("GRADE");
@@ -55,31 +56,36 @@ public class BSITSectionRecord implements ActionListener {
         welcomesLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(welcomesLabel);
         
-        selectLabel.setBounds(15,100, panel.getWidth()-20,35);
+        lblBSIT.setBounds(70,120,panel.getWidth()-20,35);
+        lblBSIT.setFont(new Font("Georgia", Font.BOLD, 20));
+        lblBSIT.setHorizontalTextPosition(SwingConstants.CENTER);
+        panel.add(lblBSIT);
+        
+        selectLabel.setBounds(15,165, panel.getWidth()-20,35);
         selectLabel.setFont(new Font("Verdana", Font.BOLD, 15));
         selectLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(selectLabel);
         
         //Buttons
-        studentButton.setBounds(50, 200,panel.getWidth()-100, 50);
+        studentButton.setBounds(50, 220,panel.getWidth()-100, 50);
         studentButton.setFont(new Font("Verdana", Font.BOLD, 15));
         studentButton.setFocusable(false);
         studentButton.addActionListener(this);
         panel.add(studentButton);
         
-        gradeButton.setBounds(50, 270, panel.getWidth()-100 , 50);
+        gradeButton.setBounds(50, 290, panel.getWidth()-100 , 50);
         gradeButton.setFont(new Font("Verdana", Font.BOLD, 15));
         gradeButton.setFocusable(false);
         gradeButton.addActionListener(this);
         panel.add(gradeButton);
         
-        attendanceButton.setBounds(50, 340,panel.getWidth()-100 , 50);
+        attendanceButton.setBounds(50, 360,panel.getWidth()-100 , 50);
         attendanceButton.setFont(new Font("Verdana", Font.BOLD, 15));
         attendanceButton.setFocusable(false);
         attendanceButton.addActionListener(this);
         panel.add(attendanceButton);
      
-        returnStudentSection.setBounds(50, 410,panel.getWidth()-100 , 50);
+        returnStudentSection.setBounds(100, 470,panel.getWidth()-200 , 50);
         returnStudentSection.setFont(new Font("Verdana", Font.BOLD, 15));
         returnStudentSection.setFocusable(false);
         returnStudentSection.addActionListener(this);

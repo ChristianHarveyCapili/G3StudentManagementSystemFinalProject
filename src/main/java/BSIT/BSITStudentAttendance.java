@@ -8,6 +8,10 @@ package BSIT;
 import java.awt.*;
 import static java.awt.Color.*;
 import java.awt.event.*;
+//import java.sql.*;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.*;
@@ -15,6 +19,9 @@ import javax.swing.table.*;
 
 public class BSITStudentAttendance extends JFrame implements ActionListener {
     
+    
+    
+   
     JFrame BSITFrame;
     JPanel headerPanel;
     JLabel headerLabel,subheaderLabel;
@@ -66,7 +73,7 @@ public class BSITStudentAttendance extends JFrame implements ActionListener {
         BSITFrame.add(subheaderLabel);
         
         
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 0);
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 50);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -163,5 +170,8 @@ public class BSITStudentAttendance extends JFrame implements ActionListener {
           BSITSectionRecord bs = new BSITSectionRecord();
             bs.BSITSectionRecord();
         }
-    }
-}
+        
+       
+       
+        }
+   }

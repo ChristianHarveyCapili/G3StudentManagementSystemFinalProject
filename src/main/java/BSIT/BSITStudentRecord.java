@@ -7,6 +7,10 @@ package BSIT;
 import java.awt.*;
 import static java.awt.Color.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.*;
@@ -137,6 +141,38 @@ public class BSITStudentRecord extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addButton) {
                 addRow();
+                
+                try {
+                
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagementdb");
+                    
+                    Statement st;
+                    st = conn.createStatement();
+                    
+                    for(int i=0; i<model.getRowCount(); i++){
+                        
+                             
+                        String Studno  = model.getValueAt(i, 1).toString();
+                        String LastName  = model.getValueAt(i, 1).toString();
+                        String FirstName  = model.getValueAt(i, 1).toString();
+                        String MiddleName  = model.getValueAt(i, 1).toString();
+                        String Age  = model.getValueAt(i, 1).toString();
+                        String Birthday  = model.getValueAt(i, 1).toString();
+                        String Gender  = model.getValueAt(i, 1).toString();
+                        String ContactNo  = model.getValueAt(i, 1).toString();
+                        
+                        
+                        String sqlQuery = "INSERT INTO bsitattendance (Student No., Last Name, First Name, Last Name, Monday, Tuesday, Wedsnesday, Thursday, Friday) VALUES ('"+Studno+"','"+LastName+"'"+FirstName+"''"+MiddleName+"''"+Age+"''"+Birthday+"''"+Gender+"''"+ContactNo+"')";
+                        
+                        st.addBatch(sqlQuery);
+                    }
+                int[] rowsInserted = st.executeBatch();
+                System.out.println("rows Inserted Count = " + rowsInserted.length);
+                    
+                } catch (SQLException ex) {
+                    System.out.println(e);
+                }
+                
         }             
         if (e.getSource() == delButton) {
                  int selectedRow = table.getSelectedRow();

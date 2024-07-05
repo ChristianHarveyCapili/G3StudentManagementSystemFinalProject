@@ -68,7 +68,7 @@ public class BSITStudentRecord extends JFrame implements ActionListener {
         BSITFrame.add(subheaderLabel);
         
         
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Age","Birthday","Gender","Contact No."}, 50);
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Age","Birthday","Gender","Contact No."}, 0);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -144,7 +144,7 @@ public class BSITStudentRecord extends JFrame implements ActionListener {
                 
                 try {
                 
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagementdb");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagementdb","root","root");
                     
                     Statement st;
                     st = conn.createStatement();
@@ -162,7 +162,7 @@ public class BSITStudentRecord extends JFrame implements ActionListener {
                         String ContactNo  = model.getValueAt(i, 1).toString();
                         
                         
-                        String sqlQuery = "INSERT INTO bsitattendance (Student No., Last Name, First Name, Last Name, Monday, Tuesday, Wedsnesday, Thursday, Friday) VALUES ('"+Studno+"','"+LastName+"'"+FirstName+"''"+MiddleName+"''"+Age+"''"+Birthday+"''"+Gender+"''"+ContactNo+"')";
+                        String sqlQuery = "INSERT INTO bsitrecord (Student No., Last Name, First Name, Last Name, Monday, Tuesday, Wedsnesday, Thursday, Friday) VALUES ('"+Studno+"','"+LastName+"'"+FirstName+"''"+MiddleName+"''"+Age+"''"+Birthday+"''"+Gender+"''"+ContactNo+"')";
                         
                         st.addBatch(sqlQuery);
                     }

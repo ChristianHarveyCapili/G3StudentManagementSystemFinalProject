@@ -66,7 +66,7 @@ public class IEStudentAttendance extends JFrame implements ActionListener {
         IEFrame.add(subheaderLabel);
         
         
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 50);
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 0);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -151,7 +151,7 @@ public class IEStudentAttendance extends JFrame implements ActionListener {
                 
                 try {
                 
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagementdb");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagementdb","root","root");
                     
                     Statement st;
                     st = conn.createStatement();
@@ -169,7 +169,7 @@ public class IEStudentAttendance extends JFrame implements ActionListener {
                         String Thursday  = model.getValueAt(i, 1).toString();
                         String Friday  = model.getValueAt(i, 1).toString();
                         
-                        String sqlQuery = "INSERT INTO bsitattendance (Student No., Last Name, First Name, Last Name, Monday, Tuesday, Wedsnesday, Thursday, Friday) VALUES ('"+Studno+"','"+LastName+"'"+FirstName+"''"+MiddleName+"''"+Monday+"''"+Tuesday+"''"+Wednesday+"''"+Thursday+"''"+Friday+"')";
+                        String sqlQuery = "INSERT INTO ieattendance (Student No., Last Name, First Name, Last Name, Monday, Tuesday, Wedsnesday, Thursday, Friday) VALUES ('"+Studno+"','"+LastName+"'"+FirstName+"''"+MiddleName+"''"+Monday+"''"+Tuesday+"''"+Wednesday+"''"+Thursday+"''"+Friday+"')";
                         
                         st.addBatch(sqlQuery);
                     }

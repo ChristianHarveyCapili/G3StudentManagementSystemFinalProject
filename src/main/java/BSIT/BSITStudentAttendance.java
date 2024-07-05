@@ -72,7 +72,7 @@ public class BSITStudentAttendance extends JFrame implements ActionListener {
         BSITFrame.add(subheaderLabel);
         
         
-        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"}, 50);
+        model = new DefaultTableModel(new Object[]{"Student No. ", "Last Name", "First Name", "Middle Name", "Monday","Tuesday","Wednesday","Thursday","Friday"},0);
         table = new JTable(model);
         table.setOpaque(false);
         table.setBackground(new Color(245, 245, 220));
@@ -157,7 +157,7 @@ public class BSITStudentAttendance extends JFrame implements ActionListener {
                 
                 try {
                 
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagementdb");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentmanagementdb","root","root");
                     
                     Statement st;
                     st = conn.createStatement();

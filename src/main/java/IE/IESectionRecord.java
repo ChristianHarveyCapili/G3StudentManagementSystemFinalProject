@@ -70,7 +70,7 @@ public  class IESectionRecord implements ActionListener {
         selectLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         panel.add(selectLabel);
         
-        //Buttons
+        
         studentButton.setBounds(50, 220,panel.getWidth()-100, 50);
         studentButton.setFont(new Font("Verdana", Font.BOLD, 15));
         studentButton.setFocusable(false);

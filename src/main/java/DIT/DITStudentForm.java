@@ -130,7 +130,7 @@ public class DITStudentForm extends JFrame implements ActionListener {
             insertData(studentNo, lastName, firstName, middleName, "bsitgrade");
             insertData(studentNo, lastName, firstName, middleName, "bsitattendance");
 
-            JOptionPane.showMessageDialog(insertFrame, "Data inserted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(insertFrame, "Data Submited.", "Success", JOptionPane.INFORMATION_MESSAGE);
         } else if (e.getSource() == returnButton) {
             insertFrame.dispose();
             DITStudentRecord br = new DITStudentRecord();

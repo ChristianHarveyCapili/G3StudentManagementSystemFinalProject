@@ -14,10 +14,9 @@ public class Main {
         EventQueue.invokeLater(new Runnable(){
             @Override
             public void run() {
-////              StartScreen ss = new StartScreen();
-//              ss.setVisible(true);
-              StudentSection ss = new StudentSection();
-//              StudentInsertForm sa = new StudentInsertForm();
+              StartScreen ss = new StartScreen();
+              ss.setVisible(true);
+
               
                 
             }
